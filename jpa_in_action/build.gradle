@@ -22,10 +22,7 @@ group = 'com.leo'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-//用于置顶thymeleaf的版本，如果在spring-boot-starter中指定是指定starter的版本
-//ext
-ext['thymeleaf.version']='3.0.11.RELEASE'
-ext['thymeleaf-layout-dialect.version']='2.1.1'
+ext['hibernate.version']='5.2.8.Final'
 
 allprojects {
 	repositories {
@@ -35,7 +32,9 @@ allprojects {
 
 	dependencies {
 		implementation 'org.springframework.boot:spring-boot-starter'
-		compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+		compile 'mysql:mysql-connector-java:8.0.18'
+		compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+		runtimeOnly group: 'com.h2database', name: 'h2', version: '1.4.197'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	}
 }

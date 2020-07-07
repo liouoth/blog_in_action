@@ -1,0 +1,17 @@
+body{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.navigator{
+    width: 16%;
+}
+
+.nav-wrapper>li{
+    margin-bottom: 60%;
+}
+
+.nav-tools{
+    height: 50px;
+    background: #9f9f9f;
+}
