@@ -22,8 +22,6 @@ group = 'com.leo'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-ext['hibernate.version']='5.2.8.Final'
-
 allprojects {
 	repositories {
 		maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
@@ -32,17 +30,14 @@ allprojects {
 
 	dependencies {
 		implementation 'org.springframework.boot:spring-boot-starter'
-		implementation 'org.springframework.boot:spring-boot-starter-web'
-		compile 'mysql:mysql-connector-java:8.0.18'
-		compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-        compile 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
-		runtimeOnly group: 'com.h2database', name: 'h2', version: '1.4.197'
-		compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.20'
+//		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+		implementation group: 'net.java.dev.jna', name: 'jna', version: '4.3.0'
 	}
 }
 
-test {
-    useJUnitPlatform()
+test{
+	useJUnitPlatform()
 }
 
