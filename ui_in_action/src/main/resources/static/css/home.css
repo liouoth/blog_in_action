@@ -1,0 +1,50 @@
+.banner {
+    width: 270px;
+}
+
+.nav-wrapper {
+    height: 600px;
+}
+
+.logo {
+    height: 48px;
+    padding: 3px 0;
+}
+
+.logo > a {
+    height: 30px;
+    width: 30px;
+    padding-left: 10px;
+}
+
+
+.nav {
+    height: 300px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-a{
+    padding-bottom: 7px;
+    padding-top: 10px;
+}
+
+.nav-a>div{
+    padding: 10px;
+}
+
+.nav-a > div > span {
+    margin-left: 20px;
+    margin-right: 15px;
+}
+
+.main-sidebar {
+    max-width: 390px;
+    border-left: 1px solid #e0e0e0;
+}
+
+.nav-active{
+    background-color: #4F463C;
+    color: #fff;
+    border-radius: 22px;
+}
