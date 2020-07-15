@@ -15,6 +15,10 @@ a {
     color: #18191F;
 }
 
+ul li {
+    list-style: none;
+}
+
 /*宽、高*/
 .fill-full {
     height: 100%;
@@ -61,11 +65,11 @@ a {
 }
 
 .crc {
-    align-content: center;
+    align-items: center;
 }
 
 .crs {
-    align-content: flex-start;
+    align-items: flex-start;
 }
 
 .cr-b {
@@ -73,7 +77,7 @@ a {
 }
 
 .cre {
-    align-content: flex-end;
+    align-items: flex-end;
 }
 
 /*是否换行*/
@@ -110,9 +114,9 @@ a {
 }
 
 .header {
-    width: 570px;
-    border-left: 1px;
+    flex-grow: 1;
     border-right: 1px solid #e0e0e0;
+    overflow: hidden;
 }
 
 .logo-icon {
@@ -122,26 +126,61 @@ a {
     overflow: hidden;
 }
 
-a,a:hover,a:active,a:visited,a:link,a:focus{
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
+a, a:hover, a:active, a:visited, a:link, a:focus {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
-    outline:none;
+    outline: none;
     background: none;
     text-decoration: none;
 }
 
-.main-wrapper{
-    width:990px;
+.main-wrapper {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex-shrink: 1;
+    flex-grow: 1;
 }
 
-.main-container{
-    width:600px;
+.main-container {
+    width: 600px;
+    border-right: 1px solid #e0e0e0;
 }
 
-.main-header{
+.main-header {
     padding: 0 15px;
-    height: 60px;
+    height: 53px;
     font-size: 22px;
     font-weight: bold;
+    box-sizing: border-box;
     border-bottom: 1px solid #e0e0e0;
+}
+
+.info-wrapper {
+    height: 100px;
+}
+
+.info-img {
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+}
+
+.info-icon{
+    width: 20px;
+    height: 20px;
+    fill: #9a9a9a;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.info-name{
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.info-icon:hover{
+    fill: #18191F!important;
+    cursor: pointer;
 }
