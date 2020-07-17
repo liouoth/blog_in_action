@@ -50,7 +50,7 @@
 }
 
 .talk-wrapper {
-    min-height: 120px;
+    min-height: 80px;
     padding: 10px;
     border-bottom: 1px solid #e0e0e0;
 }
@@ -170,7 +170,7 @@
     margin: 10px 0px;
     max-width: 300px;
     font-size: 14px;
-    min-height: 50px;
+    min-height: 20px;
 }
 
 .content-timeInfo {

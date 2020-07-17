@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ArticleRepository extends JpaRepository<ArticleEntity,Long> {
 
-    @Query(value = "select * from article order by uploadTime limit 5",
+    @Query(value = "select a.* from article a left join article_tag_assn ata on a.id = ata.aid left join tag t on ata.tid= t.id order by uploadTime limit 5",
             nativeQuery = true)
     List<ArticleEntity> listRecently();
 

@@ -25,12 +25,13 @@ public class ArticleEntity implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date updateTime;
 
-    @OneToMany(
-            mappedBy = "article",cascade = CascadeType.ALL,orphanRemoval = true
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name="article_tag_assn",joinColumns = {@JoinColumn(name = "aid")},
+            inverseJoinColumns = {@JoinColumn(name = "tid")}
     )
-
-
     private Set<TagEntity> tags;
+
     protected ArticleEntity() {
     }
 
@@ -98,5 +99,12 @@ public class ArticleEntity implements Serializable {
         this.likes = likes;
     }
 
+    public Set<TagEntity> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<TagEntity> tags) {
+        this.tags = tags;
+    }
 }
 

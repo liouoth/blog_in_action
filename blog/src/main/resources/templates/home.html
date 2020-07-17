@@ -89,173 +89,52 @@
             <div class="main-header flex col mc fill-width">
                 <span style="height: 30px;">Home</span>
             </div>
-            <div class="main-talks flex col ms">
-                <section class="talk-wrapper flex row">
-                    <div class="icon-wrapper post flex col mc crc">
+            <div class="main-talks flex col ms fill-width">
+                <section class="talk-wrapper flex row" th:each="post:${posts}" th:switch="${post.getType()}">
+                    <div class="icon-wrapper post flex col mc crc" th:case="0">
                         <div class="flex row mc">
                             <svg class="talk-icon" aria-hidden="true">
                                 <use xlink:href="#icon-Send"></use>
                             </svg>
                         </div>
                     </div>
-                    <div class="flex col ms">
-                        <div class="talk-header flex row ms">
-                            <span><b>article name</b></span>
-                            <span>@post</span>
-                            <span>2019/1/1</span>
-                        </div>
-                        <div class="talk-content">
-                            <p>
-                                在youtube看了几个kcar的介绍，虽然车子小，但是很高，有的车内有1米4那么高，小朋友都可以直立。虽然车子小，但是轮子小，又布置在前后最顶端，所以轴距并不短。后排空间宽阔，后排放倒又可以放很多东西。真是极好的城市用车，真是应该引进到中国</p>
-                        </div>
-                        <div class="talk-tool fill-width flex row ms">
-                            <div class="flex row mc crc">
-                                <svg class="tool-icon" aria-hidden="true">
-                                    <use xlink:href="#icon-Like"></use>
-                                </svg>
-                                <span>6</span>
-                            </div>
-                            <div class="flex row mc crc">
-                                <svg class="tool-icon" aria-hidden="true">
-                                    <use xlink:href="#icon-dislike"></use>
-                                </svg>
-                                <span>10</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="talk-wrapper flex row">
-                    <div class="icon-wrapper repost flex col mc crc">
+                    <div class="icon-wrapper repost flex col mc crc" th:case="1">
                         <div class="flex row mc">
                             <svg class="talk-icon" aria-hidden="true">
                                 <use xlink:href="#icon-repost"></use>
                             </svg>
                         </div>
                     </div>
-                    <div class="flex col ms">
-                        <div class="talk-header flex row ms">
-                            <span><b>article name</b></span>
-                            <span>@post</span>
-                            <span>2019/1/1</span>
-                        </div>
-                        <div class="talk-content">
-                            <p>
-                                在youtube看了几个kcar的介绍，虽然车子小，但是很高，有的车内有1米4那么高，小朋友都可以直立。虽然车子小，但是轮子小，又布置在前后最顶端，所以轴距并不短。后排空间宽阔，后排放倒又可以放很多东西。真是极好的城市用车，真是应该引进到中国</p>
-                        </div>
-                        <div class="talk-tool fill-width flex row ms">
-                            <div class="flex row mc crc">
-                                <svg class="tool-icon" aria-hidden="true">
-                                    <use xlink:href="#icon-Like"></use>
-                                </svg>
-                                <span>6</span>
-                            </div>
-                            <div class="flex row mc crc">
-                                <svg class="tool-icon" aria-hidden="true">
-                                    <use xlink:href="#icon-dislike"></use>
-                                </svg>
-                                <span>10</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="talk-wrapper flex row">
-                    <div class="icon-wrapper say flex col mc crc">
+                    <div class="icon-wrapper say flex col mc crc" th:case="2">
                         <div class="flex row mc">
                             <svg class="talk-icon" aria-hidden="true">
                                 <use xlink:href="#icon-sey-talk-a"></use>
                             </svg>
                         </div>
                     </div>
-                    <div class="flex col ms">
-                        <div class="talk-header flex row ms">
-                            <span><b>article name</b></span>
-                            <span>@post</span>
-                            <span>2019/1/1</span>
-                        </div>
-                        <div class="talk-content">
-                            <p>
-                                在youtube看了几个kcar的介绍，虽然车子小，但是很高，有的车内有1米4那么高，小朋友都可以直立。虽然车子小，但是轮子小，又布置在前后最顶端，所以轴距并不短。后排空间宽阔，后排放倒又可以放很多东西。真是极好的城市用车，真是应该引进到中国</p>
+                    <div class="flex col msp">
+                        <div class="flex col ms">
+                            <div class="talk-header flex row ms">
+                                <span><b th:text="${post.title}"></b></span>
+                                <span>@will</span>
+                                <span th:text="${post.getUploadTime()}"></span>
+                            </div>
+                            <div class="talk-content">
+                                <p th:text="${post.content}"></p>
+                            </div>
                         </div>
                         <div class="talk-tool fill-width flex row ms">
                             <div class="flex row mc crc">
                                 <svg class="tool-icon" aria-hidden="true">
                                     <use xlink:href="#icon-Like"></use>
                                 </svg>
-                                <span>6</span>
+                                <span th:text="${post.likes}"></span>
                             </div>
                             <div class="flex row mc crc">
                                 <svg class="tool-icon" aria-hidden="true">
                                     <use xlink:href="#icon-dislike"></use>
                                 </svg>
-                                <span>10</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="talk-wrapper flex row">
-                    <div class="icon-wrapper post flex col mc crc">
-                        <div class="flex row mc">
-                            <svg class="talk-icon" aria-hidden="true">
-                                <use xlink:href="#icon-Send"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="flex col ms">
-                        <div class="talk-header flex row ms">
-                            <span><b>article name</b></span>
-                            <span>@post</span>
-                            <span>2019/1/1</span>
-                        </div>
-                        <div class="talk-content">
-                            <p>
-                                在youtube看了几个kcar的介绍，虽然车子小，但是很高，有的车内有1米4那么高，小朋友都可以直立。虽然车子小，但是轮子小，又布置在前后最顶端，所以轴距并不短。后排空间宽阔，后排放倒又可以放很多东西。真是极好的城市用车，真是应该引进到中国</p>
-                        </div>
-                        <div class="talk-tool fill-width flex row ms">
-                            <div class="flex row mc crc">
-                                <svg class="tool-icon" aria-hidden="true">
-                                    <use xlink:href="#icon-Like"></use>
-                                </svg>
-                                <span>6</span>
-                            </div>
-                            <div class="flex row mc crc">
-                                <svg class="tool-icon" aria-hidden="true">
-                                    <use xlink:href="#icon-dislike"></use>
-                                </svg>
-                                <span>10</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="talk-wrapper flex row">
-                    <div class="icon-wrapper repost flex col mc crc">
-                        <div class="flex row mc">
-                            <svg class="talk-icon" aria-hidden="true">
-                                <use xlink:href="#icon-repost"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="flex col ms">
-                        <div class="talk-header flex row ms">
-                            <span><b>article name</b></span>
-                            <span>@post</span>
-                            <span>2019/1/1</span>
-                        </div>
-                        <div class="talk-content">
-                            <p>
-                                在youtube看了几个kcar的介绍，虽然车子小，但是很高，有的车内有1米4那么高，小朋友都可以直立。虽然车子小，但是轮子小，又布置在前后最顶端，所以轴距并不短。后排空间宽阔，后排放倒又可以放很多东西。真是极好的城市用车，真是应该引进到中国</p>
-                        </div>
-                        <div class="talk-tool fill-width flex row ms">
-                            <div class="flex row mc crc">
-                                <svg class="tool-icon" aria-hidden="true">
-                                    <use xlink:href="#icon-Like"></use>
-                                </svg>
-                                <span>6</span>
-                            </div>
-                            <div class="flex row mc crc">
-                                <svg class="tool-icon" aria-hidden="true">
-                                    <use xlink:href="#icon-dislike"></use>
-                                </svg>
-                                <span>10</span>
+                                <span th:text="${post.dislikes}"></span>
                             </div>
                         </div>
                     </div>
@@ -278,43 +157,15 @@
                             <h2>Recently Post</h2>
                         </div>
                         <div class="flex col ms">
-                            <section class="blog-content flex col ms">
-                                <div class="content-tag flex row ms">
-                                    <span>java</span>
-                                    <span>数据库</span>
-                                    <span>jdbc</span>
+                            <section class="blog-content flex col ms" th:each="blog : ${recentlyArticles}">
+                                <div class="content-tag flex row ms" th:each="tag:${blog.tags}">
+                                    <span th:each="tag:${blog.tags}" th:text="${tag.name}"></span>
                                 </div>
                                 <div class="content-summary flex row ms">
-                                    <p><b>这是描述了jdbc连接内部实现的一篇博客,这是描述了jdbc连接内部实现的一篇博客,这是描述了jdbc连接内部实现的一篇博客</b></p>
+                                    <p><b th:text="${blog.getSummary()}"></b></p>
                                 </div>
                                 <div class="content-timeInfo">
-                                    <span>2019/12/12 13:22:10</span>
-                                </div>
-                            </section>
-                            <section class="blog-content flex col ms">
-                                <div class="content-tag flex row ms">
-                                    <span>java</span>
-                                    <span>数据库</span>
-                                    <span>jdbc</span>
-                                </div>
-                                <div class="content-summary flex row ms">
-                                    <p><b>这是描述了jdbc连接内部实现的一篇博客,这是描述了jdbc连接内部实现的一篇博客,这是描述了jdbc连接内部实现的一篇博客</b></p>
-                                </div>
-                                <div class="content-timeInfo">
-                                    <span>2019/12/12 13:22:10</span>
-                                </div>
-                            </section>
-                            <section class="blog-content flex col ms">
-                                <div class="content-tag flex row ms">
-                                    <span>java</span>
-                                    <span>数据库</span>
-                                    <span>jdbc</span>
-                                </div>
-                                <div class="content-summary flex row ms">
-                                    <p><b>这是描述了jdbc连接内部实现的一篇博客,这是描述了jdbc连接内部实现的一篇博客,这是描述了jdbc连接内部实现的一篇博客</b></p>
-                                </div>
-                                <div class="content-timeInfo">
-                                    <span>2019/12/12 13:22:10</span>
+                                    <span th:text="${blog.getUploadTime()}"></span>
                                 </div>
                             </section>
                         </div>
