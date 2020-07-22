@@ -4,6 +4,8 @@ import com.leo.blog.entity.ArticleEntity;
 import com.leo.blog.entity.PostEntity;
 import com.leo.blog.service.ArticleService;
 import com.leo.blog.service.PostService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,12 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- *  @name CommonController
- *  @Description common controller for page index
- *  @author will7 Mao
- *  @Date  2020/7/16
- */
+@Api(tags = "公共相关接口",description = "提供导航以及一些公共服务")
 @Controller
 public class CommonController {
     @Autowired
@@ -27,6 +24,7 @@ public class CommonController {
     @Autowired
     private PostService postService;
 
+    @ApiOperation("主页导航")
     @RequestMapping("/")
     public ModelAndView home(Model model){
         Map<String,Object> map = new HashMap<>();
@@ -43,6 +41,12 @@ public class CommonController {
         map.put("topViewArticles",topViewArticles);
         map.put("posts",posts);
         return new ModelAndView("home",map);
+    }
+
+    @RequestMapping("/article")
+    public ModelAndView article(Model model){
+        Map<String,Object> map = new HashMap<>();
+        return new ModelAndView("article",map);
     }
 
 

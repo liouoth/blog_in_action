@@ -20,7 +20,9 @@ plugins {
 
 group = 'com.leo'
 version = '0.0.1-SNAPSHOT'
+apply plugin: 'application'
 sourceCompatibility = '1.8'
+mainClassName = 'com.leo.ui_in_action.UiInActionApplication'
 
 ext['thymeleaf.version']='3.0.11.RELEASE'
 ext['thymeleaf-layout-dialect.version']='2.1.1'
@@ -33,6 +35,7 @@ allprojects {
 
 	dependencies {
 		implementation 'org.springframework.boot:spring-boot-starter'
+		implementation 'org.springframework.boot:spring-boot-starter-security'
 		compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	}

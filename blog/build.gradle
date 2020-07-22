@@ -38,6 +38,8 @@ allprojects {
         implementation 'org.springframework.boot:spring-boot-starter'
         implementation 'org.springframework.boot:spring-boot-starter-security'
         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+        implementation group: 'io.springfox', name: 'springfox-swagger-ui'
 		compile group: 'com.alibaba', name: 'fastjson', version: '1.2.62'
 		implementation 'mysql:mysql-connector-java:8.0.15'
         compile 'org.springframework.boot:spring-boot-starter-thymeleaf'

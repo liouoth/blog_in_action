@@ -1,5 +1,7 @@
 package com.leo.blog.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -9,9 +11,11 @@ import java.util.Set;
 
 @Entity
 @Table(name = "article")
+@ApiModel("文章实体类")
 public class ArticleEntity implements Serializable {
     @Id
     @GeneratedValue
+    @ApiModelProperty("用户 id")
     private Long id;
     private String title;
     private String summary;

@@ -4,17 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- *  @name CommonController
- *  @Description common controller for page index
+ *  @name ArticleController
+ *  @Description controller for article
  *  @author will7 Mao
  *  @Date  2020/7/16
  */
 @Controller
-public class CommonController {
-    @RequestMapping("/")
-    public String home(){
-        return "home";
-    }
-
+@RequestMapping("/article")
+public class ArticleController {
 
 }

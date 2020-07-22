@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" style="font-size: 15px;">
+<head>
+    <meta charset="UTF-8">
+    <title>Will Of Coding</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <script th:src="@{/js/font/iconfont.js}"></script>
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+<div class="flex row fill-full">
+    <header class="header flex row me fill-height">
+        <div class="banner flex col msp fill-height">
+            <div class="nav-wrapper flex col">
+                <div class="logo flex row ms crc">
+                    <a th:href="@{/}" style="display: block">
+                        <svg class="logo-icon" aria-hidden="true">
+                            <use xlink:href="#icon-bookmarking"></use>
+                        </svg>
+                    </a>
+                    <span style="height:26px;">WILL OF CODING</span>
+                </div>
+                <nav class="nav flex col ms crc">
+                    <a th:href="@{/}" class="nav-a flex row ms fill-width">
+                        <div class="flex row ms crc">
+                            <svg class="logo-icon" aria-hidden="true">
+                                <use xlink:href="#icon-home"></use>
+                            </svg>
+                            <span>Home</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/article}" class="nav-a flex row ms fill-width">
+                        <div class="flex row ms crc nav-active">
+                            <svg class="logo-icon" aria-hidden="true">
+                                <use xlink:href="#icon-book"></use>
+                            </svg>
+                            <span>Articles</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/}" class="nav-a flex row ms fill-width">
+                        <div class="flex row ms crc">
+                            <svg class="logo-icon" aria-hidden="true">
+                                <use xlink:href="#icon-friend"></use>
+                            </svg>
+                            <span>Friends</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/}" class="nav-a flex row ms fill-width">
+                        <div class="flex row ms crc">
+                            <svg class="logo-icon" aria-hidden="true">
+                                <use xlink:href="#icon-Plugin"></use>
+                            </svg>
+                            <span>Plugins</span>
+                        </div>
+                    </a>
+                    <a th:href="@{/}" class="nav-a flex row ms fill-width">
+                        <div class="flex row ms crc">
+                            <svg class="logo-icon" aria-hidden="true">
+                                <use xlink:href="#icon-me"></use>
+                            </svg>
+                            <span>About me</span>
+                        </div>
+                    </a>
+                </nav>
+            </div>
+            <div class="info-wrapper flex row ms crc">
+                <div class="flex col mc fill-height">
+                    <img th:src="@{/img/avatar.png}" class="info-img">
+                </div>
+                <div class="flex col mc crs fill-full">
+                    <span class="info-name">Will Mao</span>
+                    <div class="flex row ms crc">
+                        <svg class="info-icon" aria-hidden="true">
+                            <use xlink:href="#icon-github"></use>
+                        </svg>
+                        <svg class="info-icon" aria-hidden="true">
+                            <use xlink:href="#icon-twitter"></use>
+                        </svg>
+                        <svg class="info-icon" aria-hidden="true">
+                            <use xlink:href="#icon-weibo"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main-wrapper flex row f-nowrap">
+        <div class="fill-height" style="width: 1200px"></div>
+    </main>
+</div>
+</body>
+</html>
