@@ -38,6 +38,11 @@
     padding-bottom: 5em!important;
 }
 
+.m-margin-tb-small{
+    margin-top: 0.5em!important;
+    margin-bottom: 0.5em!important;
+}
+
 .m-inline-block{
     display: inline-block!important;
 }
@@ -50,4 +55,32 @@
     font-weight: 300!important;
     letter-spacing: 1px !important;
     line-height: 1.8;
+}
+
+.m-black{
+    color: #000!important;
+}
+
+.m-position-tr{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.m-mobile-show{
+    display: none !important;
+}
+
+.m-mobile-hide{
+    display: block;
+}
+
+@media screen and (max-width: 768px){
+    .m-mobile-hide{
+        display: none ! important;
+    }
+
+    .m-mobile-show{
+        display: block !important;
+    }
 }

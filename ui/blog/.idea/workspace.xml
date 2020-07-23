@@ -8,6 +8,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="blog" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -65,7 +68,8 @@
       <updated>1595386976759</updated>
       <workItem from="1595386983662" duration="182000" />
       <workItem from="1595387181343" duration="128000" />
-      <workItem from="1595387320198" duration="17532000" />
+      <workItem from="1595387320198" duration="18173000" />
+      <workItem from="1595483686240" duration="7852000" />
     </task>
     <servers />
   </component>
