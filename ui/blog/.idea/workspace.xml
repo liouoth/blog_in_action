@@ -46,13 +46,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.test.html">
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/blog/templates/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="test.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/blog/templates/test.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.test.html" />
         <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.test.html" />
       </list>
     </recent_temporary>
   </component>
@@ -69,7 +74,8 @@
       <workItem from="1595386983662" duration="182000" />
       <workItem from="1595387181343" duration="128000" />
       <workItem from="1595387320198" duration="18173000" />
-      <workItem from="1595483686240" duration="7852000" />
+      <workItem from="1595483686240" duration="7886000" />
+      <workItem from="1595571193391" duration="7365000" />
     </task>
     <servers />
   </component>
