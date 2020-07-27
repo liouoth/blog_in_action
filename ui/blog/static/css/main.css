@@ -1,0 +1,26 @@
+body{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+}
+
+.m-rm-all-mp{
+    margin: 0px !important;
+    padding: 0px!important;
+}
+
+.m-rm-all-p{
+    padding: 0px!important;
+}
+
+.fill-full{
+    height: 100%;
+    width: 100%;
+}
+
+
+.fill-height{
+    height: 100%;
+}
