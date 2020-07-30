@@ -63,6 +63,6 @@
 
 /*container*/
 .m-container{
-    max-width: 72em;
+    max-width: 72em!important;
     margin: 0 auto;
 }
