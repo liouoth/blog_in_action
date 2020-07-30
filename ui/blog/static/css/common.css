@@ -60,9 +60,31 @@
     display: inline-block;
 }
 
+/*margin*/
+.m-margin-tb-tiny{
+    margin-top: 0.3rem !important;
+    margin-top: 0.3rem !important;
+}
+
+.m-margin-t-small{
+    margin-top: 0.5rem!important;
+}
+
+.m-margin-top{
+    margin-top: 1rem!important;
+}
+
+.m-margin-t-large{
+    margin-top: 2rem!important;
+}
 
 /*container*/
 .m-container{
     max-width: 72em!important;
     margin: 0 auto;
+}
+
+/*color*/
+.m-black{
+    color: #0f0f10!important;
 }
