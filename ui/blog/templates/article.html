@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Will Of Coding | Home</title>
+    <link rel="stylesheet" href="../static/css/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css'>
+</head>
+<body>
+<!-- nav -->
+<nav class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui item teal header">Will Of Coding ｜ article</h2>
+            <a href="#" class="item"><i class="mini icon home"></i>Home</a>
+            <a href="#" class="item"><i class="mini icon book"></i>Articles</a>
+            <a href="#" class="item"><i class="mini icon tags"></i>Tags</a>
+            <a href="#" class="item"><i class="mini icon calendar"></i>Achieves</a>
+            <a href="#" class="item"><i class="mini icon user"></i>About Me</a>
+            <div class="right item">
+                <div class="ui icon transparent input inverted">
+                    <input type="text" placeholder="Search...">
+                    <i class="icon link search"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- main -->
+<main class="m-padded-tb-big m-container-small">
+    <div class="ui container">
+        <div class="ui top attached segment">
+            <div class="ui horizontal link list">
+                <div class="item">
+                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                    <div class="content"><a class="header">liouoth</a></div>
+                </div>
+                <div class="item">
+                    <i class="icon calendar"></i> 2007-10-9 20:10:20
+                </div>
+                <div class="item">
+                    <i class="icon eye"></i>192
+                </div>
+            </div>
+        </div>
+        <div class="ui attached segment">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596385793592&di=706fb6f1308d4d1f7d91d9f957a141a8&imgtype=0&src=http%3A%2F%2Ft9.baidu.com%2Fit%2Fu%3D583874135%2C70653437%26fm%3D79%26app%3D86%26f%3DJPEG%3Fw%3D3607%26h%3D2408" alt="" class="ui rounded image fluid">
+        </div>
+        <div class="ui attached padded segment">
+            <div class="ui right aligned basic segment">
+                <div class="ui orange basic label">原创</div>
+            </div>
+            <h2 class="ui header center aligned">关于数据结构</h2>
+            <div id="content" class="m-padded-lr m-padded-tb-big">
+                ## List转Set
+
+                Set set = new HashSet(new ArrayList());
+
+                ## Set转List
+
+                List list = new ArrayList(new HashSet());
+
+                ## 数组转为List
+
+                List arr = Arrays.asList("1", "2", "3");
+                //或者
+                String[] arr = {"1", "2"};
+                List list = Arrays.asList(arr);
+
+                ## 数组转为Set
+
+                先转为list，再转成set
+
+                int[] arr = { 1, 2, 3 };
+                Set set = new HashSet(Arrays.asList(arr));
+
+                ## Map的值转化为List
+
+                List list = new ArrayList(map.values());
+
+                ## Map的值转化为Set
+
+                Set set = new HashSet(map.values());
+
+                ## List转数组
+
+                List list = Arrays.asList("a","b");
+                String[] arr = (String[])list.toArray(new String[list.size()]);
+            </div>
+            <div class="m-padded-lr">
+                <a href="" class="ui label basic teal">
+                    数据结构
+                </a>
+            </div>
+            <div class="ui center aligned segment basic" >
+                <button class="ui orange basic circular button" id="pay-btn">赞赏</button>
+            </div>
+            <div class="ui flowing popup top left transition hidden">
+                <div class="ui orange basic label">
+                    <div class="ui images" style="font-size:inherit!important;">
+                        <div class="image">
+                            <img src="../static/img/QRcode.png" class="ui rounded bordered image" style="width: 120px;">
+                            <p>支付宝</p>
+                        </div>
+                        <div class="image">
+                            <img src="../static/img/QRcode.png" class="ui rounded bordered image" style="width: 120px;">
+                            <p style="text-align: center">微信</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui attached positive message">
+            博客信息
+        </div>
+        <div class="ui bottom attached segment">
+            留言区域
+        </div>
+    </div>
+</main>
+<!--footer-->
+<!--what is vertical-->
+<footer class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui divided inverted grid m-text-lined m-text-spaced stackable">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img class="ui rounded image" src="../static/img/QRcode.png"/>
+                    </div>
+                </div>
+            </div>
+            <div class="four wide column">
+                <div class="ui link inverted list">
+                    <h2 class="ui inverted header">最新博客</h2>
+                    <a class="item">什么是数据结构？</a>
+                    <a class="item">算机网络知多少？</a>
+                    <a class="item">http vs https？</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <div class="ui link inverted list">
+                    <h2 class="ui inverted header">联系我</h2>
+                    <a class="item">email:mwqyykl@gmail.com</a>
+                    <a class="item">github:liouoth</a>
+                    <a class="item">weibo:liouoth</a>
+                </div>
+            </div>
+            <div class="five wide column">
+                <h2 class="ui inverted header">关于我</h2>
+                <p class="m-opacity-tiny">乐观向上、不偏不倚</p>
+                <p class="m-opacity-tiny">Stay Hungry , Stay Foolish</p>
+            </div>
+        </div>
+    </div>
+    <div class="ui inverted section divider"></div>
+    <div class="ui container attached center aligned m-text-spaced m-text-lined m-text-thin m-opacity-mini">
+        <p>Powered by Springboot & Thymeleaf</p>
+        <p>Copyright@2019-2020 Designed By liouoth</p>
+    </div>
+</footer>
+</body>
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/semantic.min.js"></script>
+</html>
