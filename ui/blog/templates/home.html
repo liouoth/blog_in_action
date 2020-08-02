@@ -6,25 +6,28 @@
     <title>Will Of Coding | Home</title>
     <link rel="stylesheet" href="../static/css/semantic.min.css">
     <link rel="stylesheet" href="../static/css/common.css">
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css'>
+    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
 </head>
-<body>
+<body class="m-bg">
     <!-- nav -->
     <nav class="ui inverted attached segment m-padded-tb-mini">
         <div class="ui container">
-            <div class="ui inverted secondary stackable menu">
+            <div class="ui inverted secondary stackable menu" id="nav-menu">
                 <h2 class="ui item teal header">Will Of Coding</h2>
-                <a href="#" class="item"><i class="mini icon home"></i>Home</a>
-                <a href="#" class="item"><i class="mini icon book"></i>Articles</a>
-                <a href="#" class="item"><i class="mini icon tags"></i>Tags</a>
-                <a href="#" class="item"><i class="mini icon calendar"></i>Achieves</a>
-                <a href="#" class="item"><i class="mini icon user"></i>About Me</a>
-                <div class="right item">
+                <a href="#" class="item m-mobile-hide"><i class="mini icon home"></i>Home</a>
+                <a href="#" class="item m-mobile-hide"><i class="mini icon book"></i>Articles</a>
+                <a href="#" class="item m-mobile-hide"><i class="mini icon tags"></i>Tags</a>
+                <a href="#" class="item m-mobile-hide"><i class="mini icon calendar"></i>Achieves</a>
+                <a href="#" class="item m-mobile-hide"><i class="mini icon user"></i>About Me</a>
+                <div class="right item m-mobile-hide">
                     <div class="ui icon transparent input inverted">
                         <input type="text" placeholder="Search...">
                         <i class="icon link search"></i>
                     </div>
                 </div>
+                <a class="ui icon button m-mobile-show middle aligned black" id="nav-btn">
+                    <i class="icon sidebar inverted"></i>
+                </a>
             </div>
         </div>
     </nav>
@@ -376,7 +379,7 @@
     <!--what is vertical-->
     <footer class="ui inverted vertical segment m-padded-tb-massive">
         <div class="ui center aligned container">
-            <div class="ui divided inverted grid m-text-lined m-text-spaced stackable">
+            <div class="ui divided inverted grid m-text-lined m-text-spaced stackable mobile reversed">
                 <div class="three wide column">
                         <div class="ui inverted link list">
                             <div class="item">
@@ -416,4 +419,9 @@
 </body>
 <script src="../static/js/jquery.min.js"></script>
 <script src="../static/js/semantic.min.js"></script>
+<script>
+    $("#nav-btn").click(function () {
+        $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
+    });
+</script>
 </html>

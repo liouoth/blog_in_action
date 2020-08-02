@@ -3,28 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Will Of Coding | Home</title>
+    <title>Will Of Coding | Article</title>
     <link rel="stylesheet" href="../static/css/semantic.min.css">
     <link rel="stylesheet" href="../static/css/common.css">
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css'>
+    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
 </head>
-<body>
+<body class="m-bg">
 <!-- nav -->
 <nav class="ui inverted attached segment m-padded-tb-mini">
     <div class="ui container">
-        <div class="ui inverted secondary stackable menu">
-            <h2 class="ui item teal header">Will Of Coding ｜ article</h2>
-            <a href="#" class="item"><i class="mini icon home"></i>Home</a>
-            <a href="#" class="item"><i class="mini icon book"></i>Articles</a>
-            <a href="#" class="item"><i class="mini icon tags"></i>Tags</a>
-            <a href="#" class="item"><i class="mini icon calendar"></i>Achieves</a>
-            <a href="#" class="item"><i class="mini icon user"></i>About Me</a>
-            <div class="right item">
+        <div class="ui inverted secondary stackable menu" id="nav-menu">
+            <h2 class="ui item teal header">Will Of Coding</h2>
+            <a href="#" class="item m-mobile-hide"><i class="mini icon home"></i>Home</a>
+            <a href="#" class="item m-mobile-hide"><i class="mini icon book"></i>Articles</a>
+            <a href="#" class="item m-mobile-hide"><i class="mini icon tags"></i>Tags</a>
+            <a href="#" class="item m-mobile-hide"><i class="mini icon calendar"></i>Achieves</a>
+            <a href="#" class="item m-mobile-hide"><i class="mini icon user"></i>About Me</a>
+            <div class="right item m-mobile-hide">
                 <div class="ui icon transparent input inverted">
                     <input type="text" placeholder="Search...">
                     <i class="icon link search"></i>
                 </div>
             </div>
+            <a class="ui icon button m-mobile-show middle aligned black" id="nav-btn">
+                <i class="icon sidebar inverted"></i>
+            </a>
         </div>
     </div>
 </nav>
@@ -32,12 +35,12 @@
 <main class="m-padded-tb-big m-container-small">
     <div class="ui container">
         <div class="ui top attached segment">
-            <div class="ui horizontal link list">
-                <div class="item">
+            <div class="ui horizontal middle aligned link list">
+                <div class="item m-margin-r-tiny">
                     <img src="../static/img/avatar.jpg" class="ui avatar image">
                     <div class="content"><a class="header">liouoth</a></div>
                 </div>
-                <div class="item">
+                <div class="item m-margin-r-tiny">
                     <i class="icon calendar"></i> 2007-10-9 20:10:20
                 </div>
                 <div class="item">
@@ -53,15 +56,11 @@
                 <div class="ui orange basic label">原创</div>
             </div>
             <h2 class="ui header center aligned">关于数据结构</h2>
-            <div id="content" class="m-padded-lr m-padded-tb-big">
+            <div id="content" class="m-padded-lr-responsive m-padded-tb-big">
                 ## List转Set
-
                 Set set = new HashSet(new ArrayList());
-
                 ## Set转List
-
                 List list = new ArrayList(new HashSet());
-
                 ## 数组转为List
 
                 List arr = Arrays.asList("1", "2", "3");
@@ -89,7 +88,7 @@
                 List list = Arrays.asList("a","b");
                 String[] arr = (String[])list.toArray(new String[list.size()]);
             </div>
-            <div class="m-padded-lr">
+            <div class="m-padded-lr-responsive">
                 <a href="" class="ui label basic teal">
                     数据结构
                 </a>
@@ -97,7 +96,7 @@
             <div class="ui center aligned segment basic" >
                 <button class="ui orange basic circular button" id="pay-btn">赞赏</button>
             </div>
-            <div class="ui flowing popup top left transition hidden">
+            <div class="ui flowing popup top left transition hidden" id="pay-qr-codes">
                 <div class="ui orange basic label">
                     <div class="ui images" style="font-size:inherit!important;">
                         <div class="image">
@@ -113,10 +112,115 @@
             </div>
         </div>
         <div class="ui attached positive message">
-            博客信息
+            <div class="ui middle aligned grid">
+                <div class="ui eleven wide column">
+                    <header>作者：毛文清 will</header>
+                    <p>原创内容，请勿搬运</p>
+                    <p>原创内容，请勿搬运</p>
+                </div>
+                <div class="ui five wide column">
+                    <img src="../static/img/QRcode.png" alt="" class="ui right floated rounded bordered image" width="110px">
+                </div>
+            </div>
         </div>
         <div class="ui bottom attached segment">
-            留言区域
+            <div class="ui segment">
+                <div class="ui threaded comments">
+                    <h3 class="ui dividing header">Comments</h3>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">
+                        </a>
+                        <div class="content">
+                            <a class="author">Matt</a>
+                            <div class="metadata">
+                                <span class="date">Today at 5:42PM</span>
+                            </div>
+                            <div class="text">
+                                How artistic!
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">
+                        </a>
+                        <div class="content">
+                            <a class="author">Elliot Fu</a>
+                            <div class="metadata">
+                                <span class="date">Yesterday at 12:30AM</span>
+                            </div>
+                            <div class="text">
+                                <p>This has been very useful for my research. Thanks as well!</p>
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                        <div class="comments">
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">
+                                </a>
+                                <div class="content">
+                                    <a class="author">Jenny Hess</a>
+                                    <div class="metadata">
+                                        <span class="date">Just now</span>
+                                    </div>
+                                    <div class="text">
+                                        Elliot you are always so right :)
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">Reply</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">
+                        </a>
+                        <div class="content">
+                            <a class="author">Joe Henderson</a>
+                            <div class="metadata">
+                                <span class="date">5 days ago</span>
+                            </div>
+                            <div class="text">
+                                Dude, this is awesome. Thanks so much
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui form">
+                <div class="field">
+                    <textarea name="content" placeholder="请输入评论信息...."></textarea>
+                </div>
+                <div class="fields">
+                    <div class="field m-mobile-fill-width m-margin-b-small">
+                        <div class="ui left icon input">
+                            <i class="icon user"></i>
+                            <input type="text" name="nickname" placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-fill-width m-margin-b-small">
+                        <div class="ui left icon input">
+                            <i class="icon mail"></i>
+                            <input type="text" name="email" placeholder="邮箱">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-fill-width">
+                        <button class="ui teal button"><i class="icon send"></i>发布</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
@@ -124,7 +228,7 @@
 <!--what is vertical-->
 <footer class="ui inverted vertical segment m-padded-tb-massive">
     <div class="ui center aligned container">
-        <div class="ui divided inverted grid m-text-lined m-text-spaced stackable">
+        <div class="ui divided inverted grid m-text-lined m-text-spaced stackable mobile reversed">
             <div class="three wide column">
                 <div class="ui inverted link list">
                     <div class="item">
@@ -164,4 +268,19 @@
 </body>
 <script src="../static/js/jquery.min.js"></script>
 <script src="../static/js/semantic.min.js"></script>
+<script>
+    $(function () {
+        //
+        $("#nav-btn").click(function () {
+            $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
+        });
+
+        $("#pay-btn").popup({
+            popup: $('#pay-qr-codes'),
+            position:"bottom center",
+            on:"click"
+        });
+    })
+
+</script>
 </html>

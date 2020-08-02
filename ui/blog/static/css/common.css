@@ -57,6 +57,10 @@
 }
 
 /*opacity*/
+.m-opacity-tiny{
+    opacity: 0.5 !important;
+}
+
 .m-opacity-mini{
     opacity: 0.8 !important;
 }
@@ -102,4 +106,36 @@
 /*color*/
 .m-black{
     color: #0f0f10!important;
+}
+
+.m-mobile-hide{
+    display: block;
+}
+
+.m-mobile-show{
+    display: none!important;
+}
+
+@media screen and (max-width:574px){
+    .m-mobile-hide{
+        display: none!important;
+    }
+
+    .m-mobile-show{
+        display: block!important;
+    }
+}
+
+#nav-btn{
+    position: absolute;
+    top:1rem;
+    right:0;
+}
+
+.fill-height{
+    height:100%
+}
+
+.m-bg{
+
 }
