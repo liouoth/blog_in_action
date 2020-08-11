@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../static/css/typo/typo.css">
     <link rel="stylesheet prefetch"
           href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
+    <link rel="stylesheet" href="../static/css/animate.min.css">
+    <link rel="stylesheet" href="../static/lib/prism/prism.css">
+    <link rel="stylesheet" href="../static/lib/toc/tocbot.css">
 </head>
 <body class="m-bg">
 <!-- nav -->
@@ -34,7 +37,7 @@
     </div>
 </nav>
 <!-- main -->
-<main class="m-padded-tb-big m-container-small">
+<main class="m-padded-tb-big m-container-small animate__animated animate__fadeInUp" id="waypoint">
     <div class="ui container">
         <div class="ui top attached segment">
             <div class="ui horizontal middle aligned link list">
@@ -59,7 +62,7 @@
                 <div class="ui orange basic label">原创</div>
             </div>
             <h2 class="ui header center aligned">关于数据结构</h2>
-            <div id="content" class="m-padded-lr-responsive m-padded-tb-big typo typo-selection">
+            <div id="content" class="m-padded-lr-responsive m-padded-tb-big typo typo-selectionv js-toc-content">
                 <h1>中文网页重设与排版：<i class="serif">Typo.css</i></h1><br/>
 
                 <h2 id="tagline" class="serif">一致化浏览器排版效果，构建最适合中文阅读的网页排版</h2>
@@ -294,6 +297,7 @@
                     works nice as the
                     demo you're watching now. The following code is the best way to render typo in Chinese:
                 </p>
+                <pre><code class="language-css">p { color: red }</code></pre>
             </div>
             <div class="m-padded-lr-responsive">
                 <a href="" class="ui label basic teal">
@@ -331,7 +335,7 @@
                 </div>
             </div>
         </div>
-        <div class="ui bottom attached segment">
+        <div id="comment-content" class="ui bottom attached segment">
             <div class="ui segment">
                 <div class="ui threaded comments">
                     <h3 class="ui dividing header">Comments</h3>
@@ -432,6 +436,24 @@
         </div>
     </div>
 </main>
+
+<!--tool-->
+<div class="m-padded ui vertical icon buttons m-fixed m-right-bottom" style="display: none" id="tool-bar">
+    <button type="button" class="ui teal button" id="toc-btn">目录</button>
+    <a href="#comment-content" class="ui teal button">留言</a>
+    <button type="button" class="ui icon button" id="wechat-btn"><i class="icon weixin"></i></button>
+    <button type="button" class="ui icon teal button" id="toTop"><i class="icon chevron up"></i></button>
+</div>
+
+<!--toc-->
+<div class="ui flowing popup top left transition hidden" id="toc" style="width: 200px!important;">
+    <ol class="js-toc"></ol>
+</div>
+<!--wechat-->
+<div class="ui flowing popup top left transition hidden" id="wechat" style="width: 120px">
+<!--    <img src="../static/img/QRcode.png" class="ui rounded image">-->
+</div>
+
 <!--footer-->
 <!--what is vertical-->
 <footer class="ui inverted vertical segment m-padded-tb-massive">
@@ -476,6 +498,11 @@
 </body>
 <script src="../static/js/jquery.min.js"></script>
 <script src="../static/js/semantic.min.js"></script>
+<script src="../static/lib/prism/prism.js"></script>
+<script src="../static/lib/toc/tocbot.min.js"></script>
+<script src="../static/lib/qrcode/qrcode.min.js"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
 <script>
     $(function () {
         //
@@ -488,7 +515,51 @@
             position: "bottom center",
             on: "click"
         });
+        $("#toc-btn").popup({
+            popup: $('#toc'),
+            position: "top center",
+            on: "click"
+        });
+        $("#wechat-btn").popup({
+            popup: $('#wechat'),
+            position: "left center",
+            on: "click"
+        });
+        tocbot.init({
+            tocSelector: '.js-toc',
+            contentSelector: '.js-toc-content',
+            headingSelector: 'h1, h2, h3',
+            hasInnerContainers: true
+        });
+
+        var qrcode = new QRCode("wechat", {
+            text: "http://www.runoob.com",
+            width: 100,
+            height: 100,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+        
+        $('#toTop').click(
+            function () {
+                $.scrollTo(0,800);
+            }
+        );
+
+        var waypoint = new Waypoint({
+            element: document.getElementById('waypoint'),
+            handler: function(direction) {
+                if (direction =='down'){
+                    $('#tool-bar').show(500);
+                } else {
+                    $('#tool-bar').hide(500);
+                }
+            }
+        })
     })
+
+
 
 </script>
 </html>
