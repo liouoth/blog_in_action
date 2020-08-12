@@ -2,3 +2,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+
+logging:
+  level:
+    root: warn
+    com.will: debug
+  file:
+    name: log/blog-prod.log
+
