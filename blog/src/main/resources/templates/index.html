@@ -1,10 +1,427 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>index</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Will Of Coding | Home</title>
+    <link rel="stylesheet" th:href="@{/static/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{/static/css/common.css}">
+    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
 </head>
-<body>
-首页
+<body class="m-bg">
+    <!-- nav -->
+    <nav class="ui inverted attached segment m-padded-tb-mini">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu" id="nav-menu">
+                <h2 class="ui item teal header">Will Of Coding</h2>
+                <a href="#" class="item m-mobile-hide"><i class="mini icon home"></i>Home</a>
+                <a href="#" class="item m-mobile-hide"><i class="mini icon book"></i>Sorts</a>
+                <a href="#" class="item m-mobile-hide"><i class="mini icon tags"></i>Tags</a>
+                <a href="#" class="item m-mobile-hide"><i class="mini icon calendar"></i>Achieves</a>
+                <a href="#" class="item m-mobile-hide"><i class="mini icon user"></i>About Me</a>
+                <div class="right item m-mobile-hide">
+                    <div class="ui icon transparent input inverted">
+                        <input type="text" placeholder="Search...">
+                        <i class="icon link search"></i>
+                    </div>
+                </div>
+                <a class="ui icon button m-mobile-show middle aligned black" id="nav-btn">
+                    <i class="icon sidebar inverted"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- main -->
+    <main class="m-padded-tb-big m-container">
+        <div class="ui container">
+            <div class="ui grid stackable">
+                <div class="eleven wide column">
+                    <!-- header -->
+                    <div class="ui top attached segment">
+                        <div class="ui middle aligned two column grid">
+                            <div class="column">
+                                <h3 class="ui header teal">博客</h3>
+                            </div>
+                            <div class="right aligned column">
+                                共 <h2 class="ui header orange m-inline-block m-text-thin"> 14 </h2> 篇
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--content-->
+                    <div class="ui attached segment">
+                        <div class="ui padded segment vertical m-padded-tb-large">
+                            <div class="ui grid stackable mobile reversed">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
+                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
+                                    <div class="ui grid middle aligned">
+                                        <div class="twelve wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <div class="content"><a class="header">liouoth</a></div>
+                                                </div>
+                                                <div class="item">
+                                                   <i class="icon calendar"></i> 2007-10-9 20:10:20
+                                                </div>
+                                                <div class="item">
+                                                    <i class="icon eye"></i>192
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="four wide column right aligned">
+                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a class="" href="#">
+                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded segment vertical m-padded-tb-large">
+                            <div class="ui grid stackable mobile reversed">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
+                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
+                                    <div class="ui grid middle aligned">
+                                        <div class="twelve wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <div class="content"><a class="header">liouoth</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="icon calendar"></i> 2007-10-9 20:10:20
+                                                </div>
+                                                <div class="item">
+                                                    <i class="icon eye"></i>192
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="four wide column right aligned">
+                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a class="" href="#">
+                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded segment vertical m-padded-tb-large">
+                            <div class="ui grid stackable mobile reversed">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
+                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
+                                    <div class="ui grid middle aligned">
+                                        <div class="twelve wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <div class="content"><a class="header">liouoth</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="icon calendar"></i> 2007-10-9 20:10:20
+                                                </div>
+                                                <div class="item">
+                                                    <i class="icon eye"></i>192
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="four wide column right aligned">
+                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a class="" href="#">
+                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded segment vertical m-padded-tb-large">
+                            <div class="ui grid stackable mobile reversed">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
+                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
+                                    <div class="ui grid middle aligned">
+                                        <div class="twelve wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <div class="content"><a class="header">liouoth</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="icon calendar"></i> 2007-10-9 20:10:20
+                                                </div>
+                                                <div class="item">
+                                                    <i class="icon eye"></i>192
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="four wide column right aligned">
+                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a class="" href="#">
+                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded segment vertical m-padded-tb-large">
+                            <div class="ui grid stackable mobile reversed">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
+                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
+                                    <div class="ui grid middle aligned">
+                                        <div class="twelve wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <div class="content"><a class="header">liouoth</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="icon calendar"></i> 2007-10-9 20:10:20
+                                                </div>
+                                                <div class="item">
+                                                    <i class="icon eye"></i>192
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="four wide column right aligned">
+                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a class="" href="#">
+                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded segment vertical m-padded-tb-large">
+                            <div class="ui grid stackable mobile reversed">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
+                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
+                                    <div class="ui grid middle aligned">
+                                        <div class="twelve wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <div class="content"><a class="header">liouoth</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="icon calendar"></i> 2007-10-9 20:10:20
+                                                </div>
+                                                <div class="item">
+                                                    <i class="icon eye"></i>192
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="four wide column right aligned">
+                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a class="" href="#">
+                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--footer-->
+                    <div class="ui segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <a class="ui teal button basic">上一页</a>
+                            </div>
+                            <div class="column right aligned">
+                                <a class="ui teal button basic">下一页</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <div class="ui segments">
+                        <div class="ui secondary segment">
+                            <div class="ui two column grid">
+                                <div class="column">
+                                    <i class="icon idea"></i>分类
+                                </div>
+                                <div class="column right aligned">
+                                    <a href="">more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui teal segment">
+                            <div class="ui fluid vertical menu">
+                                <a class="item">
+                                    数据结构
+                                    <div class="ui teal basic label">14</div>
+                                </a>
+                                <a class="item">
+                                    数据结构
+                                    <div class="ui teal basic label">14</div>
+                                </a>
+                                <a class="item">
+                                    数据结构
+                                    <div class="ui teal basic label">14</div>
+                                </a>
+                                <a class="item">
+                                    数据结构
+                                    <div class="ui teal basic label">14</div>
+                                </a>
+                                <a class="item">
+                                    数据结构
+                                    <div class="ui teal basic label">14</div>
+                                </a>
+                                <a class="item">
+                                    数据结构
+                                    <div class="ui teal basic label">14</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui segments m-margin-t-large">
+                        <div class="ui secondary segment">
+                            <div class="ui two column grid">
+                                <div class="column">
+                                    <i class="icon tags"></i>标签
+                                </div>
+                                <div class="column right aligned">
+                                    <a href="">more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui teal segment">
+                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
+                                <div class="detail">12</div>
+                            </a>
+                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
+                                <div class="detail">12</div>
+                            </a>
+                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
+                                <div class="detail">12</div>
+                            </a>
+                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
+                                <div class="detail">12</div>
+                            </a>
+                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
+                                <div class="detail">12</div>
+                            </a>
+                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
+                                <div class="detail">12</div>
+                            </a>
+                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
+                                <div class="detail">12</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ui segments m-margin-t-large">
+                        <div class="ui secondary segment">
+                            <i class="icon bookmark"></i>最新推荐
+                        </div>
+                        <div class="ui segment">
+                            <a href="" class="m-black m-text-thin">
+                                聚类分析
+                            </a>
+                        </div>
+                        <div class="ui segment">
+                            <a href="" class="m-black m-text-thin">
+                                聚类分析
+                            </a>
+                        </div>
+                        <div class="ui segment">
+                            <a href="" class="m-black m-text-thin">
+                                聚类分析
+                            </a>
+                        </div>
+                        <div class="ui segment">
+                            <a href="" class="m-black m-text-thin">
+                                聚类分析
+                            </a>
+                        </div>
+                        <div class="ui segment">
+                            <a href="" class="m-black m-text-thin">
+                                聚类分析
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ui horizontal divider m-margin-t-large"><h4>扫码关注我</h4></div>
+                    <div class="ui centered card" style="width: 11rem;">
+                        <img src="../static/img/QRcode.png" class="ui rounded image" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--footer-->
+    <!--what is vertical-->
+    <footer class="ui inverted vertical segment m-padded-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui divided inverted grid m-text-lined m-text-spaced stackable mobile reversed">
+                <div class="three wide column">
+                        <div class="ui inverted link list">
+                            <div class="item">
+                                <img class="ui rounded image" src="../static/img/QRcode.png"/>
+                            </div>
+                        </div>
+                </div>
+                <div class="four wide column">
+                    <div class="ui link inverted list">
+                        <h2 class="ui inverted header">最新博客</h2>
+                        <a class="item">什么是数据结构？</a>
+                        <a class="item">算机网络知多少？</a>
+                        <a class="item">http vs https？</a>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <div class="ui link inverted list">
+                        <h2 class="ui inverted header">联系我</h2>
+                        <a class="item">email:mwqyykl@gmail.com</a>
+                        <a class="item">github:liouoth</a>
+                        <a class="item">weibo:liouoth</a>
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <h2 class="ui inverted header">关于我</h2>
+                    <p class="m-opacity-tiny">乐观向上、不偏不倚</p>
+                    <p class="m-opacity-tiny">Stay Hungry , Stay Foolish</p>
+                </div>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <div class="ui container attached center aligned m-text-spaced m-text-lined m-text-thin m-opacity-mini">
+            <p>Powered by Springboot & Thymeleaf</p>
+            <p>Copyright@2019-2020 Designed By liouoth</p>
+        </div>
+    </footer>
 </body>
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/semantic.min.js}"></script>
+<script>
+    $("#nav-btn").click(function () {
+        $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
+    });
+</script>
 </html>
