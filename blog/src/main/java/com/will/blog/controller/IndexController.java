@@ -17,5 +17,15 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/tags")
+    public String tags(){
+        return "tags";
+    }
+
+    @GetMapping("/sorts")
+    public String sorts(){
+        return "sorts";
+    }
+
 
 }

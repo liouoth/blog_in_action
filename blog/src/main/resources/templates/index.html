@@ -1,36 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Will Of Coding | Home</title>
-    <link rel="stylesheet" th:href="@{/static/css/semantic.min.css}">
-    <link rel="stylesheet" th:href="@{/static/css/common.css}">
-    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
+    <th:block th:replace="_fragments :: common_head(~{::title})">
+        <title>Home | Will Of Coding</title>
+    </th:block >
 </head>
 <body class="m-bg">
     <!-- nav -->
-    <nav class="ui inverted attached segment m-padded-tb-mini">
-        <div class="ui container">
-            <div class="ui inverted secondary stackable menu" id="nav-menu">
-                <h2 class="ui item teal header">Will Of Coding</h2>
-                <a href="#" class="item m-mobile-hide"><i class="mini icon home"></i>Home</a>
-                <a href="#" class="item m-mobile-hide"><i class="mini icon book"></i>Sorts</a>
-                <a href="#" class="item m-mobile-hide"><i class="mini icon tags"></i>Tags</a>
-                <a href="#" class="item m-mobile-hide"><i class="mini icon calendar"></i>Achieves</a>
-                <a href="#" class="item m-mobile-hide"><i class="mini icon user"></i>About Me</a>
-                <div class="right item m-mobile-hide">
-                    <div class="ui icon transparent input inverted">
-                        <input type="text" placeholder="Search...">
-                        <i class="icon link search"></i>
-                    </div>
-                </div>
-                <a class="ui icon button m-mobile-show middle aligned black" id="nav-btn">
-                    <i class="icon sidebar inverted"></i>
-                </a>
-            </div>
-        </div>
-    </nav>
+    <nav th:replace="_fragments :: common_nav(1)"></nav>
     <!-- main -->
     <main class="m-padded-tb-big m-container">
         <div class="ui container">
@@ -59,7 +36,7 @@
                                         <div class="twelve wide column">
                                             <div class="ui mini horizontal link list">
                                                 <div class="item">
-                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
                                                     <div class="content"><a class="header">liouoth</a></div>
                                                 </div>
                                                 <div class="item">
@@ -78,7 +55,7 @@
                                 </div>
                                 <div class="five wide column">
                                     <a class="" href="#">
-                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
                                     </a>
                                 </div>
                             </div>
@@ -92,7 +69,7 @@
                                         <div class="twelve wide column">
                                             <div class="ui mini horizontal link list">
                                                 <div class="item">
-                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
                                                     <div class="content"><a class="header">liouoth</a></div>
                                                 </div>
                                                 <div class="item">
@@ -111,7 +88,7 @@
                                 </div>
                                 <div class="five wide column">
                                     <a class="" href="#">
-                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
                                     </a>
                                 </div>
                             </div>
@@ -125,7 +102,7 @@
                                         <div class="twelve wide column">
                                             <div class="ui mini horizontal link list">
                                                 <div class="item">
-                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
                                                     <div class="content"><a class="header">liouoth</a></div>
                                                 </div>
                                                 <div class="item">
@@ -144,7 +121,7 @@
                                 </div>
                                 <div class="five wide column">
                                     <a class="" href="#">
-                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
                                     </a>
                                 </div>
                             </div>
@@ -158,7 +135,7 @@
                                         <div class="twelve wide column">
                                             <div class="ui mini horizontal link list">
                                                 <div class="item">
-                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
                                                     <div class="content"><a class="header">liouoth</a></div>
                                                 </div>
                                                 <div class="item">
@@ -177,7 +154,7 @@
                                 </div>
                                 <div class="five wide column">
                                     <a class="" href="#">
-                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
                                     </a>
                                 </div>
                             </div>
@@ -191,7 +168,7 @@
                                         <div class="twelve wide column">
                                             <div class="ui mini horizontal link list">
                                                 <div class="item">
-                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
                                                     <div class="content"><a class="header">liouoth</a></div>
                                                 </div>
                                                 <div class="item">
@@ -210,7 +187,7 @@
                                 </div>
                                 <div class="five wide column">
                                     <a class="" href="#">
-                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
                                     </a>
                                 </div>
                             </div>
@@ -224,7 +201,7 @@
                                         <div class="twelve wide column">
                                             <div class="ui mini horizontal link list">
                                                 <div class="item">
-                                                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                                                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
                                                     <div class="content"><a class="header">liouoth</a></div>
                                                 </div>
                                                 <div class="item">
@@ -243,7 +220,7 @@
                                 </div>
                                 <div class="five wide column">
                                     <a class="" href="#">
-                                        <img src="http://www.005.tv/uploads/allimg/191016/67-191016135100437.png" class="ui rounded image">
+                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
                                     </a>
                                 </div>
                             </div>
@@ -256,7 +233,7 @@
                                 <a class="ui teal button basic">上一页</a>
                             </div>
                             <div class="column right aligned">
-                                <a class="ui teal button basic">下一页</a>
+                                <a class="ui teal button `basic">下一页</a>
                             </div>
                         </div>
                     </div>
@@ -369,59 +346,15 @@
                     </div>
                     <div class="ui horizontal divider m-margin-t-large"><h4>扫码关注我</h4></div>
                     <div class="ui centered card" style="width: 11rem;">
-                        <img src="../static/img/QRcode.png" class="ui rounded image" >
+                        <img th:src="@{/img/QRcode.png}" class="ui rounded image" >
                     </div>
                 </div>
             </div>
         </div>
     </main>
     <!--footer-->
-    <!--what is vertical-->
-    <footer class="ui inverted vertical segment m-padded-tb-massive">
-        <div class="ui center aligned container">
-            <div class="ui divided inverted grid m-text-lined m-text-spaced stackable mobile reversed">
-                <div class="three wide column">
-                        <div class="ui inverted link list">
-                            <div class="item">
-                                <img class="ui rounded image" src="../static/img/QRcode.png"/>
-                            </div>
-                        </div>
-                </div>
-                <div class="four wide column">
-                    <div class="ui link inverted list">
-                        <h2 class="ui inverted header">最新博客</h2>
-                        <a class="item">什么是数据结构？</a>
-                        <a class="item">算机网络知多少？</a>
-                        <a class="item">http vs https？</a>
-                    </div>
-                </div>
-                <div class="four wide column">
-                    <div class="ui link inverted list">
-                        <h2 class="ui inverted header">联系我</h2>
-                        <a class="item">email:mwqyykl@gmail.com</a>
-                        <a class="item">github:liouoth</a>
-                        <a class="item">weibo:liouoth</a>
-                    </div>
-                </div>
-                <div class="five wide column">
-                    <h2 class="ui inverted header">关于我</h2>
-                    <p class="m-opacity-tiny">乐观向上、不偏不倚</p>
-                    <p class="m-opacity-tiny">Stay Hungry , Stay Foolish</p>
-                </div>
-            </div>
-        </div>
-        <div class="ui inverted section divider"></div>
-        <div class="ui container attached center aligned m-text-spaced m-text-lined m-text-thin m-opacity-mini">
-            <p>Powered by Springboot & Thymeleaf</p>
-            <p>Copyright@2019-2020 Designed By liouoth</p>
-        </div>
-    </footer>
+    <footer th:replace="_fragments :: common_footer"></footer>
 </body>
-<script th:src="@{/static/js/jquery.min.js}"></script>
-<script th:src="@{/static/js/semantic.min.js}"></script>
-<script>
-    $("#nav-btn").click(function () {
-        $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
-    });
-</script>
+<!--/*/<th:block th:replace="_fragments :: common_script">/*/-->
+<!--/*/</th:block >/*/-->
 </html>

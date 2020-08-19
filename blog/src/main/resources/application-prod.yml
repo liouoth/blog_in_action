@@ -10,3 +10,5 @@ logging:
   file:
     name: log/blog-prod.log
 
+server:
+  port: 1080

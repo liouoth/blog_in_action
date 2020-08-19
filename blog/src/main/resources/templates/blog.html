@@ -1,41 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Will Of Coding | Article</title>
-    <link rel="stylesheet" href="../static/css/semantic.min.css">
-    <link rel="stylesheet" href="../static/css/common.css">
+    <th:block th:replace="_fragments :: common_head(~{::title})">
+        <title>Blog | Will Of Coding</title>
+    </th:block>
     <link rel="stylesheet" href="../static/css/typo/typo.css">
-    <link rel="stylesheet prefetch"
-          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
     <link rel="stylesheet" href="../static/css/animate.min.css">
     <link rel="stylesheet" href="../static/lib/prism/prism.css">
     <link rel="stylesheet" href="../static/lib/toc/tocbot.css">
 </head>
 <body class="m-bg">
 <!-- nav -->
-<nav class="ui inverted attached segment m-padded-tb-mini">
-    <div class="ui container">
-        <div class="ui inverted secondary stackable menu" id="nav-menu">
-            <h2 class="ui item teal header">Will Of Coding</h2>
-            <a href="#" class="item m-mobile-hide"><i class="mini icon home"></i>Home</a>
-            <a href="#" class="item m-mobile-hide"><i class="mini icon book"></i>Articles</a>
-            <a href="#" class="item m-mobile-hide"><i class="mini icon tags"></i>Tags</a>
-            <a href="#" class="item m-mobile-hide"><i class="mini icon calendar"></i>Achieves</a>
-            <a href="#" class="item m-mobile-hide"><i class="mini icon user"></i>About Me</a>
-            <div class="right item m-mobile-hide">
-                <div class="ui icon transparent input inverted">
-                    <input type="text" placeholder="Search...">
-                    <i class="icon link search"></i>
-                </div>
-            </div>
-            <a class="ui icon button m-mobile-show middle aligned black" id="nav-btn">
-                <i class="icon sidebar inverted"></i>
-            </a>
-        </div>
-    </div>
-</nav>
+<nav th:insert="_fragments :: common_nav(0)"></nav>
 <!-- main -->
 <main class="m-padded-tb-big m-container-small animate__animated animate__fadeInUp" id="waypoint">
     <div class="ui container">
@@ -449,117 +425,20 @@
 <div class="ui flowing popup top left transition hidden" id="toc" style="width: 200px!important;">
     <ol class="js-toc"></ol>
 </div>
+
 <!--wechat-->
 <div class="ui flowing popup top left transition hidden" id="wechat" style="width: 120px">
 <!--    <img src="../static/img/QRcode.png" class="ui rounded image">-->
 </div>
 
 <!--footer-->
-<!--what is vertical-->
-<footer class="ui inverted vertical segment m-padded-tb-massive">
-    <div class="ui center aligned container">
-        <div class="ui divided inverted grid m-text-lined m-text-spaced stackable mobile reversed">
-            <div class="three wide column">
-                <div class="ui inverted link list">
-                    <div class="item">
-                        <img class="ui rounded image" src="../static/img/QRcode.png"/>
-                    </div>
-                </div>
-            </div>
-            <div class="four wide column">
-                <div class="ui link inverted list">
-                    <h2 class="ui inverted header">最新博客</h2>
-                    <a class="item">什么是数据结构？</a>
-                    <a class="item">算机网络知多少？</a>
-                    <a class="item">http vs https？</a>
-                </div>
-            </div>
-            <div class="four wide column">
-                <div class="ui link inverted list">
-                    <h2 class="ui inverted header">联系我</h2>
-                    <a class="item">email:mwqyykl@gmail.com</a>
-                    <a class="item">github:liouoth</a>
-                    <a class="item">weibo:liouoth</a>
-                </div>
-            </div>
-            <div class="five wide column">
-                <h2 class="ui inverted header">关于我</h2>
-                <p class="m-opacity-tiny">乐观向上、不偏不倚</p>
-                <p class="m-opacity-tiny">Stay Hungry , Stay Foolish</p>
-            </div>
-        </div>
-    </div>
-    <div class="ui inverted section divider"></div>
-    <div class="ui container attached center aligned m-text-spaced m-text-lined m-text-thin m-opacity-mini">
-        <p>Powered by Springboot & Thymeleaf</p>
-        <p>Copyright@2019-2020 Designed By liouoth</p>
-    </div>
-</footer>
+<footer th:insert="_fragments :: common_footer"></footer>
 </body>
-<script src="../static/js/jquery.min.js"></script>
-<script src="../static/js/semantic.min.js"></script>
 <script src="../static/lib/prism/prism.js"></script>
 <script src="../static/lib/toc/tocbot.min.js"></script>
 <script src="../static/lib/qrcode/qrcode.min.js"></script>
 <script src="../static/lib/waypoints/jquery.waypoints.min.js"></script>
 <script src="../static/lib/scrollTo/jquery.scrollTo.min.js"></script>
-<script>
-    $(function () {
-        //
-        $("#nav-btn").click(function () {
-            $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
-        });
-
-        $("#pay-btn").popup({
-            popup: $('#pay-qr-codes'),
-            position: "bottom center",
-            on: "click"
-        });
-        $("#toc-btn").popup({
-            popup: $('#toc'),
-            position: "top center",
-            on: "click"
-        });
-        $("#wechat-btn").popup({
-            popup: $('#wechat'),
-            position: "left center",
-            on: "click"
-        });
-        tocbot.init({
-            tocSelector: '.js-toc',
-            contentSelector: '.js-toc-content',
-            headingSelector: 'h1, h2, h3',
-            hasInnerContainers: true
-        });
-
-        var qrcode = new QRCode("wechat", {
-            text: "http://www.runoob.com",
-            width: 100,
-            height: 100,
-            colorDark : "#000000",
-            colorLight : "#ffffff",
-            correctLevel : QRCode.CorrectLevel.H
-        });
-        
-        $('#toTop').click(
-            function () {
-                $.scrollTo(0,800);
-            }
-        );
-
-        var waypoint = new Waypoint({
-            element: document.getElementById('waypoint'),
-            handler: function(direction) {
-                if (direction =='down'){
-                    $('#tool-bar').show(500);
-                } else {
-                    $('#tool-bar').hide(500);
-                }
-            }
-        })
-    })
-
-
-
-</script>
+<!--/*/<th:block th:insert="_fragments :: common_script">/*/-->
+<!--/*/</th:block >/*/-->
 </html>
