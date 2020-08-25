@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name = "blog")
 public class Blog {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
@@ -30,7 +30,7 @@ public class Blog {
 
     private boolean isPublished;
 
-    private boolean recomment;
+    private boolean recommend;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
@@ -134,12 +134,12 @@ public class Blog {
         isPublished = published;
     }
 
-    public boolean isRecomment() {
-        return recomment;
+    public boolean isRecommend() {
+        return recommend;
     }
 
-    public void setRecomment(boolean recomment) {
-        this.recomment = recomment;
+    public void setRecommend(boolean recommend) {
+        this.recommend = recommend;
     }
 
     public Date getCreateTime() {

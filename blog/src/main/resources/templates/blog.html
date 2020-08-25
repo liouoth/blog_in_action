@@ -4,10 +4,10 @@
     <th:block th:replace="_fragments :: common_head(~{::title})">
         <title>Blog | Will Of Coding</title>
     </th:block>
-    <link rel="stylesheet" href="../static/css/typo/typo.css">
-    <link rel="stylesheet" href="../static/css/animate.min.css">
-    <link rel="stylesheet" href="../static/lib/prism/prism.css">
-    <link rel="stylesheet" href="../static/lib/toc/tocbot.css">
+    <link rel="stylesheet" th:href="@{/css/typo/typo.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" th:href="@{/lib/toc/tocbot.css}">
 </head>
 <body class="m-bg">
 <!-- nav -->
@@ -18,7 +18,7 @@
         <div class="ui top attached segment">
             <div class="ui horizontal middle aligned link list">
                 <div class="item m-margin-r-tiny">
-                    <img src="../static/img/avatar.jpg" class="ui avatar image">
+                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
                     <div class="content"><a class="header">liouoth</a></div>
                 </div>
                 <div class="item m-margin-r-tiny">
@@ -287,11 +287,11 @@
                 <div class="ui orange basic label">
                     <div class="ui images" style="font-size:inherit!important;">
                         <div class="image">
-                            <img src="../static/img/QRcode.png" class="ui rounded bordered image" style="width: 120px;">
+                            <img th:src="@{/img/QRcode.png}" class="ui rounded bordered image" style="width: 120px;">
                             <p>支付宝</p>
                         </div>
                         <div class="image">
-                            <img src="../static/img/QRcode.png" class="ui rounded bordered image" style="width: 120px;">
+                            <img th:src="@{/img/QRcode.png}" class="ui rounded bordered image" style="width: 120px;">
                             <p style="text-align: center">微信</p>
                         </div>
                     </div>
@@ -428,17 +428,73 @@
 
 <!--wechat-->
 <div class="ui flowing popup top left transition hidden" id="wechat" style="width: 120px">
-<!--    <img src="../static/img/QRcode.png" class="ui rounded image">-->
+<!--    <img th:src="@{/img/QRcode.png}" class="ui rounded image">-->
 </div>
 
 <!--footer-->
 <footer th:insert="_fragments :: common_footer"></footer>
 </body>
-<script src="../static/lib/prism/prism.js"></script>
-<script src="../static/lib/toc/tocbot.min.js"></script>
-<script src="../static/lib/qrcode/qrcode.min.js"></script>
-<script src="../static/lib/waypoints/jquery.waypoints.min.js"></script>
-<script src="../static/lib/scrollTo/jquery.scrollTo.min.js"></script>
 <!--/*/<th:block th:insert="_fragments :: common_script">/*/-->
 <!--/*/</th:block >/*/-->
+<script th:src="@{/lib/prism/prism.js}"></script>
+<script th:src="@{/lib/toc/tocbot.min.js}"></script>
+<script th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+<script th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+<script th:src="@{/lib/scrollTo/jquery.scrollTo.min.js}"></script>
+<script>
+    $(function () {
+        //
+        $("#nav-btn").click(function () {
+            $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
+        });
+
+        $("#pay-btn").popup({
+            popup: $('#pay-qr-codes'),
+            position: "bottom center",
+            on: "click"
+        });
+        $("#toc-btn").popup({
+            popup: $('#toc'),
+            position: "top center",
+            on: "click"
+        });
+        $("#wechat-btn").popup({
+            popup: $('#wechat'),
+            position: "left center",
+            on: "click"
+        });
+        tocbot.init({
+            tocSelector: '.js-toc',
+            contentSelector: '.js-toc-content',
+            headingSelector: 'h1, h2, h3',
+            hasInnerContainers: true
+        });
+
+        var qrcode = new QRCode("wechat", {
+            text: "http://www.runoob.com",
+            width: 100,
+            height: 100,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+
+        $('#toTop').click(
+            function () {
+                $.scrollTo(0,800);
+            }
+        );
+
+        var waypoint = new Waypoint({
+            element: document.getElementById('waypoint'),
+            handler: function(direction) {
+                if (direction =='down'){
+                    $('#tool-bar').show(500);
+                } else {
+                    $('#tool-bar').hide(500);
+                }
+            }
+        })
+    })
+</script>
 </html>

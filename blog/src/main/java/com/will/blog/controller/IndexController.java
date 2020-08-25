@@ -27,5 +27,16 @@ public class IndexController {
         return "sorts";
     }
 
+    @GetMapping("/blog")
+    public String blog(){
+        return "blog";
+    }
+
+    @GetMapping("/admin/index")
+    public String adminIndex(){
+        return "/admin/index";
+    }
+
+
 
 }

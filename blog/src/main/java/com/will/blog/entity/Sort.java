@@ -8,7 +8,7 @@ import java.util.List;
 @Table(name = "sort")
 public class Sort {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 

@@ -79,8 +79,8 @@
 
 <!--common script-->
 <th:block th:fragment="common_script">
-    <script src="@{/js/jquery.min.js}"></script>
-    <script src="@{/js/semantic.min.js}"></script>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/semantic.min.js}"></script>
     <script>
         $(function () {
             $("#nav-btn").click(function () {
@@ -89,5 +89,4 @@
         })
     </script>
 </th:block>
-
 </html>
