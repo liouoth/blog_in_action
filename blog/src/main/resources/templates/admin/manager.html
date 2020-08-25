@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <th:block th:replace="_fragments :: common_head(~{::title})">
+        <title>Manager | Will Of Coding</title>
+    </th:block >
+</head>
+<body class="m-bg">
+<nav th:replace="admin/_fragments :: common_nav(2)"></nav>
+<div class="ui attached pointing menu">
+    <div class="container ui">
+        <div class="right menu">
+            <a href="" class="item">发布</a>
+            <a href="" class="active teal item">列表</a>
+        </div>
+    </div>
+</div>
+<!-- main -->
+<main class="m-padded-tb-big m-container-small">
+    <div class="ui container">
+        <form action="" class="ui segment form">
+
+            <div class="inline fields">
+                <div class="field">
+                    <input type="text" name="title" placeholder="标题">
+                </div>
+                <div class="field">
+                    <div class="ui selection dropdown">
+                        <input type="text" name="icon">
+                        <i class="icon dropdown"></i>
+                        <div class="default text">分类</div>
+                        <div class="menu">
+                            <div class="item" data-value="1">java</div>
+                            <div class="item" data-value="2">python</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" id="recommend" name="recommend">
+                        <label for="recommend">推荐</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui button">
+                        <i class="icon search"></i>搜索
+                    </div>
+                </div>
+            </div>
+        </form>
+        <table class="ui celled striped table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>标题</th>
+                <th>类型</th>
+                <th>推荐</th>
+                <th>更新时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>java的构建者模式</td>
+                <td>是</td>
+                <td>查看详情</td>
+                <td>2018-10-10 19:18:20</td>
+                <td>
+                    <a href="" class="ui mini teal button">编辑</a>
+                    <a href="" class="ui mini orange button">删除</a>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="6">
+                        <div class="ui mini pagination menu">
+                            <a href="" class="item">上一页</a>
+                            <a href="" class="item">下一页</a>
+                        </div>
+                        <a href="" class="ui mini right floated basic teal button">新增</a>
+                    </th>
+                </tr>
+
+            </tfoot>
+        </table>
+    </div>
+</main>
+<!--footer-->
+<footer th:replace="_fragments :: common_footer"></footer>
+</body>
+<!--/*/<th:block th:replace="_fragments :: common_script">/*/-->
+<!--/*/</th:block >/*/-->
+</html>
