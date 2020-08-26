@@ -2,7 +2,6 @@ package com.will.blog.aspect;
 
 import com.alibaba.fastjson.JSON;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
@@ -37,4 +36,5 @@ public class LogAspect {
     public void afterReturning(Object result){
         logger.info("result : {}",result);
     }
+
 }
