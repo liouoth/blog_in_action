@@ -83,10 +83,9 @@
     <script th:src="@{/js/semantic.min.js}"></script>
     <script>
         $(function () {
-            $("#nav-btn").click(function () {
-                $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
-            });
-        })
+            $('.ui.dropdown')
+                .dropdown();
+        });
     </script>
 </th:block>
 </html>

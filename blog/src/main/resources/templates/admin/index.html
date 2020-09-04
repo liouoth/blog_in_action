@@ -19,6 +19,11 @@
 </main>
 <footer th:insert="_fragments :: common_footer"></footer>
 </body>
-<!--/*/<th:block th:insert="_fragments :: common_script">/*/-->
+<!--/*/<th:block th:insert="admin/_fragments :: common_script">/*/-->
 <!--/*/</th:block >/*/-->
+<script>
+    $(function () {
+        $('.ui.dropdown').dropdown();
+    });
+</script>
 </html>

@@ -13,9 +13,11 @@ public class User {
     private Long id;
     private String name;
     private String username;
+    private String salt;
+    private String password;
     private String nickname;
     private String email;
-    private String avatar;
+    private String avatar="";
     private Integer type;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
@@ -107,5 +109,39 @@ public class User {
 
     public void setBlogList(List<Blog> blogList) {
         this.blogList = blogList;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", salt='" + salt + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", email='" + email + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", type=" + type +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", blogList=" + blogList +
+                '}';
     }
 }

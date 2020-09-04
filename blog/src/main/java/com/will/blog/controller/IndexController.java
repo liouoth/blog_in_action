@@ -2,6 +2,7 @@ package com.will.blog.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *  @name IndexController
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 
 @Controller
+@RequestMapping("/")
 public class IndexController {
-    @GetMapping("/")
+
+    @GetMapping("")
     public String index(){
         return "index";
     }
@@ -26,17 +29,5 @@ public class IndexController {
     public String sorts(){
         return "sorts";
     }
-
-    @GetMapping("/blog")
-    public String blog(){
-        return "blog";
-    }
-
-    @GetMapping("/admin/index")
-    public String adminIndex(){
-        return "/admin/index";
-    }
-
-
 
 }

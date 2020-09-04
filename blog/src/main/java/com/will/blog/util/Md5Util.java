@@ -25,6 +25,26 @@ public class Md5Util {
         return null;
     }
 
+    public static String encryptMd5Lower(String originString) {
+        byte[] hash;
+        try {
+            hash = MessageDigest.getInstance("MD5").digest(originString.getBytes("UTF-8"));
+            StringBuffer stringBuffer = new StringBuffer(hash.length * 2);
+            for (byte b : hash) {
+                if ((b&0xff)<0x10)
+                    stringBuffer.append("0");
+                stringBuffer.append(Integer.toHexString(b&0xff));
+            }
+            return stringBuffer.toString().toLowerCase();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        //hash 为128位2进制，转为16进制，并转为大写
+        return null;
+    }
+
     public static void test() {
 //        try {
 ////                byte [] hash = MessageDigest.getInstance("MD5").digest("jsdkjsdkj".getBytes("UTF-8"));

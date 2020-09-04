@@ -28,7 +28,7 @@
                 </div>
                 <i class="icon dropdown"></i>
                 <div class="menu">
-                    <a href="" class="item">注销</a>
+                    <a th:href="@{/admin/logout}" class="item">注销</a>
                 </div>
             </div>
             <a class="ui icon button m-mobile-show middle aligned black" id="nav-btn">
@@ -38,4 +38,15 @@
     </div>
 </nav>
 </body>
+<th:block th:fragment="common_script">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/semantic.min.js}"></script>
+    <script>
+        $(function () {
+            $("#nav-btn").click(function () {
+                $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
+            });
+        })
+    </script>
+</th:block>
 </html>

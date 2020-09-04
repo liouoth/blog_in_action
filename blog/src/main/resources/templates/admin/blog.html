@@ -4,7 +4,7 @@
     <th:block th:replace="admin/_fragments :: common_head(~{::title})">
         <title>Blog | Will Of Coding</title>
     </th:block>
-    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.css">
+    <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.css}">
 </head>
 <body class="m-bg">
 <!-- nav -->
@@ -23,7 +23,7 @@
         <form action="#" method="post" class="ui form">
             <div class="required field">
                 <div class="ui left labeled input">
-                    <div class="ui selection compact teal basic dropdown label">
+                    <div class="ui selection dropdown compact teal basic label" >
                         <input type="hidden" value="原创">
                         <i class="dropdown icon"></i>
                         <div class="text">原创</div>
@@ -107,16 +107,12 @@
 <!--footer-->
 <footer th:insert="_fragments :: common_footer"></footer>
 </body>
-<script src="../../static/js/jquery.min.js"></script>
-<script src="../../static/js/semantic.min.js"></script>
-<script src="../../static/lib/editormd/editormd.min.js"></script>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/semantic.min.js}"></script>
+<script th:src="@{/lib/editormd/editormd.min.js}"></script>
 <script>
     $(function () {
-        $("#nav-btn").click(function () {
-            $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
-        });
-
-        $(".ui.dropdown").dropdown();
+        $('.ui.dropdown').dropdown();
 
         $(".ui.form").form({
             fields: {
@@ -136,11 +132,9 @@
             width: "100%",
             height: 700,
             syncScrolling: "single",
-            path: "../../static/lib/editormd/lib/"
+            path: "/lib/editormd/lib/"
         });
 
     });
-
-
 </script>
 </html>
