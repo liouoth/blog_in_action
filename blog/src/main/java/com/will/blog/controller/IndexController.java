@@ -1,6 +1,8 @@
 package com.will.blog.controller;
 
+import com.will.blog.entity.Sort;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,19 +17,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class IndexController {
 
+    //front index
     @GetMapping("")
     public String index(){
         return "index";
     }
 
-    @GetMapping("/tags")
-    public String tags(){
-        return "tags";
+    //admin index
+    @RequestMapping("/admin")
+    public String adminIndex() {
+        return "/admin/login";
     }
 
-    @GetMapping("/sorts")
-    public String sorts(){
-        return "sorts";
+    @RequestMapping("/admin/blog_m")
+    public String manager() {
+        return "/admin/blog_m";
     }
 
+    @RequestMapping("/admin/blog")
+    public String blog() {
+        return "/admin/blog";
+    }
+
+    @RequestMapping("/admin/sorts")
+    public String sorts() {
+        return "/admin/sorts";
+    }
+
+    @RequestMapping("/admin/sorts_m")
+    public String sorts_m(Model model) {
+        model.addAttribute("sort",new Sort());
+        return "/admin/sorts_m";
+    }
+    @RequestMapping("/admin/tags")
+    public String tags() {
+        return "/admin/tags";
+    }
+
+    @RequestMapping("/admin/tags_m")
+    public String tags_m(Model model) {
+        model.addAttribute("tag",new Sort());
+        return "/admin/tags_m";
+    }
 }

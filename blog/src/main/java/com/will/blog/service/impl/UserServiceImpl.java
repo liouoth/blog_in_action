@@ -12,6 +12,8 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     public User checkUser(String username, String password){
+
+        //TODO 用户登录信息加盐
         User user = userDao.findByUsernameAndPassword(username,password);
         return user;
     }

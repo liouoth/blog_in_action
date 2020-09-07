@@ -1,5 +1,6 @@
 package com.will.blog.repository;
 
+import com.will.blog.dao.UserDao;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringRunner.class)
 public class UserRepositoryTest {
     @Autowired
-    private UserRepository userRepository;
+    private UserDao userDao;
 
     @Test
     public void find(){
-        userRepository.findAll();
+        userDao.findAll();
     }
 }

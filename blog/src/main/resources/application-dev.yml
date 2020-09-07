@@ -14,11 +14,10 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5Dialect
   level:
     root: info
-    com.will.blog: debug
 
   file:
     name: log/blog-dev.log
 
 # server
 server:
-  port: 8082
+  port: 8080

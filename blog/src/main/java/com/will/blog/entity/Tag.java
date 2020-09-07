@@ -1,6 +1,7 @@
 package com.will.blog.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "tag name not allowed to be empty!")
     private String name;
 
     @ManyToMany(mappedBy = "tags")

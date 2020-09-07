@@ -12,14 +12,9 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/admin")
-public class UserController {
+public class AdminController {
     @Autowired
     private UserService userService;
-
-    @RequestMapping("")
-    public String index() {
-        return "/admin/login";
-    }
 
     @RequestMapping("/login")
     public String login(@RequestParam String username,
@@ -42,5 +37,7 @@ public class UserController {
         session.removeAttribute("user");
         return "redirect:/admin";
     }
+
+
 
 }
