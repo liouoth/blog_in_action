@@ -11,6 +11,5 @@ public interface BlogService {
     Blog get(Long id);
     void delete(Long id);
     Blog update(Long id, Blog blog);
-    Blog findByName(String name);
-    Page<Sort> list(Pageable pageable);
+    Page<Blog> list(Pageable pageable,Blog blog);
 }

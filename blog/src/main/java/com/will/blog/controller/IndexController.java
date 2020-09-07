@@ -29,14 +29,14 @@ public class IndexController {
         return "/admin/login";
     }
 
-    @RequestMapping("/admin/blog_m")
+    @RequestMapping("/admin/blogs_m")
     public String manager() {
-        return "/admin/blog_m";
+        return "/admin/blogs_m";
     }
 
-    @RequestMapping("/admin/blog")
+    @RequestMapping("/admin/blogs")
     public String blog() {
-        return "/admin/blog";
+        return "/admin/blogs";
     }
 
     @RequestMapping("/admin/sorts")

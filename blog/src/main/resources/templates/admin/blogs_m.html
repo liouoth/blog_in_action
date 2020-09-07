@@ -10,8 +10,8 @@
 <div class="ui attached pointing menu">
     <div class="container ui">
         <div class="right menu">
-            <a href="" class="item">发布</a>
-            <a href="" class="active teal item">列表</a>
+            <a th:href="@{/admin/blogs}" class="item">发布</a>
+            <a th:href="@{/admin/blogs_m}" class="active teal item">列表</a>
         </div>
     </div>
 </div>
@@ -59,15 +59,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>java的构建者模式</td>
-                <td>是</td>
-                <td>查看详情</td>
-                <td>2018-10-10 19:18:20</td>
+            <tr th:each="blog,iterStat : ${page.content}">
+                <td th:text="iterStat.count"></td>
+                <td th:text="${blog.title}"></td>
+                <td th:text="${blog.type.name}"></td>
+                <td th:text="${blog.recommend} ? '是':'否'"></td>
+                <td th:text="${blog.updateTime}"></td>
                 <td>
-                    <a href="" class="ui mini teal button">编辑</a>
-                    <a href="" class="ui mini orange button">删除</a>
+                    <a th:href="@{/admin/blog/{id}/input(id=${blog.id})}" class="ui mini teal button">编辑</a>
+                    <a th:href="@{/admin/blog/{id}/delete(id=${blog.id})}" class="ui mini orange button">删除</a>
                 </td>
             </tr>
             </tbody>
@@ -75,7 +75,7 @@
                 <tr>
                     <th colspan="6">
                         <div class="ui mini pagination menu">
-                            <a href="" class="item">上一页</a>
+                            <a th:href="" class="item" th:unless="">上一页</a>
                             <a href="" class="item">下一页</a>
                         </div>
                         <a href="" class="ui mini right floated basic teal button">新增</a>
