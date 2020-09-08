@@ -15,6 +15,6 @@ public interface TagService {
     Tag update(Long id, Tag tag);
     Tag findByName(String name);
     Page<Tag> list(Pageable pageable);
-
+    List<Tag> parse(String ids);
     List<Tag> listAll();
 }

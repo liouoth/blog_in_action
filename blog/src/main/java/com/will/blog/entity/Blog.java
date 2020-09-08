@@ -14,6 +14,8 @@ public class Blog {
 
     private String title;
 
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
     private String content;
 
     private String bannerPic;
@@ -44,6 +46,9 @@ public class Blog {
 
     @ManyToMany(cascade = {CascadeType.PERSIST})
     private List<Tag> tags = new ArrayList<>();
+
+    @Transient
+    private String tagIds;
 
     @ManyToOne
     private User user;
@@ -188,5 +193,13 @@ public class Blog {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public String getTagIds() {
+        return tagIds;
+    }
+
+    public void setTagIds(String tagIds) {
+        this.tagIds = tagIds;
     }
 }

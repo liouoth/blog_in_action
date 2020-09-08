@@ -11,6 +11,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -54,6 +56,15 @@ public class TagServiceImpl implements TagService {
     @Override
     public Page<Tag> list(Pageable pageable) {
         return tagDao.findAll(pageable);
+    }
+
+    @Override
+    public List<Tag> parse(String ids) {
+        List<Long> idList = new ArrayList<>();
+        Arrays.stream(ids.split(",")).filter(id->id!=null&&!"".equals(ids)).forEach(
+               id-> idList.add(Long.valueOf(id))
+        );
+        return tagDao.findAllById(idList);
     }
 
     @Override

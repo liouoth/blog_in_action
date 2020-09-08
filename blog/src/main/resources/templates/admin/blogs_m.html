@@ -80,11 +80,18 @@
                             <a onclick="page(this)" th:attr="date-page=${page.number}-1" th:unless="${page.first}" class="item">上一页</a>
                             <a onclick="page(this)" th:attr="date-page=${page.number}+1" th:unless="${page.last}" class="item">下一页</a>
                         </div>
-                        <a href="" class="ui mini right floated basic teal button">新增</a>
+                        <a th:href="@{/admin/blog/input}" class="ui mini right floated basic teal button">新增</a>
                     </th>
                 </tr>
                 </tfoot>
             </table>
+            <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+                <i class="close icon"></i>
+                <div class="header">
+                    Tips:
+                </div>
+                <p th:text="${message}"></p>
+            </div>
         </div>
     </div>
 </main>
@@ -94,6 +101,10 @@
 <!--/*/<th:block th:replace="admin/_fragments  :: common_script">/*/-->
 <!--/*/</th:block >/*/-->
 <script>
+    $('.message .close').on('click', function () {
+        $(this).closest('.message').transition('fade');
+    });
+
     $(function () {
         $('.ui.dropdown').dropdown();
     });
