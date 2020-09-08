@@ -34,12 +34,12 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="type,iterStat:${page.content}">
+            <tr th:each="sort,iterStat:${page.content}">
                 <td th:text="${iterStat.count}"></td>
-                <td th:text="${type.name}"></td>
+                <td th:text="${sort.name}"></td>
                 <td>
-                    <a href="" th:href="@{/admin/sorts/{id}/input(id=${type.id})}" class="ui mini teal button">编辑</a>
-                    <a href="" th:href="@{/admin/sorts/delete/{id}/input(id=${type.id})}" class="ui mini orange button">删除</a>
+                    <a href="" th:href="@{/admin/sorts/{id}/input(id=${sort.id})}" class="ui mini teal button">编辑</a>
+                    <a href="" th:href="@{/admin/sorts/delete/{id}/input(id=${sort.id})}" class="ui mini orange button">删除</a>
                 </td>
             </tr>
             </tbody>

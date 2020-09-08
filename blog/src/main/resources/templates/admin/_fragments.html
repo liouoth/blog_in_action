@@ -16,14 +16,14 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu" id="nav-menu">
             <h2 class="ui item teal header">Will Admin</h2>
-            <a th:href="@{/admin/blog_m}" class="item m-mobile-hide" th:classappend="${n==1}?'active'"><i class="mini icon home"></i>Blog</a>
+            <a th:href="@{/admin/blogs_m}" class="item m-mobile-hide" th:classappend="${n==1}?'active'"><i class="mini icon home"></i>Blog</a>
             <a th:href="@{/admin/sorts}" class="item m-mobile-hide" th:classappend="${n==2}?'active'"><i class="mini icon book"></i>Sorts</a>
             <a th:href="@{/admin/tags}" class="item m-mobile-hide" th:classappend="${n==3}?'active'"><i class="mini icon tags"></i>Tags</a>
             <div class="right item ui dropdown m-mobile-hide">
                 <div class="ui icon transparent input inverted">
                     <div class="text">
                         <img th:src="@{/img/avatar.jpg}" alt="" class="ui avatar image">
-                        <span th:text="${session.user.nickname}"></span>
+                        <span th:text="${session?.user?.nickname}"></span>
                     </div>
                 </div>
                 <i class="icon dropdown"></i>

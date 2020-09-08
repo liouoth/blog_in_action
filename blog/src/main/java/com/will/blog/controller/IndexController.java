@@ -29,34 +29,5 @@ public class IndexController {
         return "/admin/login";
     }
 
-    @RequestMapping("/admin/blogs_m")
-    public String manager() {
-        return "/admin/blogs_m";
-    }
 
-    @RequestMapping("/admin/blogs")
-    public String blog() {
-        return "/admin/blogs";
-    }
-
-    @RequestMapping("/admin/sorts")
-    public String sorts() {
-        return "/admin/sorts";
-    }
-
-    @RequestMapping("/admin/sorts_m")
-    public String sorts_m(Model model) {
-        model.addAttribute("sort",new Sort());
-        return "/admin/sorts_m";
-    }
-    @RequestMapping("/admin/tags")
-    public String tags() {
-        return "/admin/tags";
-    }
-
-    @RequestMapping("/admin/tags_m")
-    public String tags_m(Model model) {
-        model.addAttribute("tag",new Sort());
-        return "/admin/tags_m";
-    }
 }

@@ -22,15 +22,15 @@ public class Blog {
 
     private Integer views;
 
-    private boolean isAllowedPraise;
+    private Boolean isAllowedPraise;
 
-    private boolean isAllowedShare;
+    private Boolean isAllowedShare;
 
-    private boolean isAllowedComment;
+    private Boolean isAllowedComment;
 
-    private boolean isPublished;
+    private Boolean isPublished;
 
-    private boolean recommend;
+    private Boolean recommend;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
@@ -102,43 +102,43 @@ public class Blog {
         this.views = views;
     }
 
-    public boolean isAllowedPraise() {
+    public Boolean getAllowedPraise() {
         return isAllowedPraise;
     }
 
-    public void setAllowedPraise(boolean allowedPraise) {
+    public void setAllowedPraise(Boolean allowedPraise) {
         isAllowedPraise = allowedPraise;
     }
 
-    public boolean isAllowedShare() {
+    public Boolean getAllowedShare() {
         return isAllowedShare;
     }
 
-    public void setAllowedShare(boolean allowedShare) {
+    public void setAllowedShare(Boolean allowedShare) {
         isAllowedShare = allowedShare;
     }
 
-    public boolean isAllowedComment() {
+    public Boolean getAllowedComment() {
         return isAllowedComment;
     }
 
-    public void setAllowedComment(boolean allowedComment) {
+    public void setAllowedComment(Boolean allowedComment) {
         isAllowedComment = allowedComment;
     }
 
-    public boolean isPublished() {
+    public Boolean getPublished() {
         return isPublished;
     }
 
-    public void setPublished(boolean published) {
+    public void setPublished(Boolean published) {
         isPublished = published;
     }
 
-    public boolean isRecommend() {
+    public Boolean getRecommend() {
         return recommend;
     }
 
-    public void setRecommend(boolean recommend) {
+    public void setRecommend(Boolean recommend) {
         this.recommend = recommend;
     }
 

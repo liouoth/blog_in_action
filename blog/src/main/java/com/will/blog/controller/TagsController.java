@@ -23,6 +23,12 @@ public class TagsController {
     @Autowired
     private TagService tagService;
 
+    @RequestMapping("/tags_m")
+    public String tags_m(Model model) {
+        model.addAttribute("tag",new com.will.blog.entity.Sort());
+        return "/admin/tags_m";
+    }
+
     @GetMapping("/tags")
     public String tags(@PageableDefault(size = 3,page = 0,sort = {"id"},direction = Sort.Direction.DESC)
                                     Pageable pageable, Model model){

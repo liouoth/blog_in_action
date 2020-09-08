@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class SortServiceImpl implements SortService {
     @Autowired
@@ -51,5 +53,10 @@ public class SortServiceImpl implements SortService {
     @Override
     public Page<Sort> list(Pageable pageable) {
         return sortDao.findAll(pageable);
+    }
+
+    @Override
+    public List<Sort> listAll() {
+        return sortDao.findAll();
     }
 }

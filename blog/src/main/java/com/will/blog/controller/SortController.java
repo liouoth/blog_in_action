@@ -25,6 +25,12 @@ public class SortController {
     @Autowired
     private SortService sortService;
 
+    @RequestMapping("/sorts_m")
+    public String sorts_m(Model model) {
+        model.addAttribute("sort",new com.will.blog.entity.Sort());
+        return "/admin/sorts_m";
+    }
+
     @GetMapping("/sorts")
     public String sorts(@PageableDefault(size = 3,page = 0,sort = {"id"},direction = Sort.Direction.DESC)
                                     Pageable pageable, Model model){

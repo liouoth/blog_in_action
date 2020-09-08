@@ -16,6 +16,7 @@ public class ControllerException {
     @ExceptionHandler(Exception.class)
     public ModelAndView exceptionHandler(HttpServletRequest request,Exception e){
         logger.error("Request URL :{},Exception:{}",request.getRequestURL(),e.getMessage());
+        e.printStackTrace();
         ModelAndView mv = new ModelAndView();
         mv.addObject("url",request.getRequestURL());
         mv.addObject("exception",e);

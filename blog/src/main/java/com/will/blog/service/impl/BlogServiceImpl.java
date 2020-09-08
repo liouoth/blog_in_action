@@ -6,6 +6,7 @@ import com.will.blog.entity.Blog;
 import com.will.blog.entity.Sort;
 import com.will.blog.service.BlogService;
 import com.will.blog.service.SortService;
+import com.will.blog.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -51,25 +52,23 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.save(b);
     }
 
-
     @Override
-    public Page<Blog> list(Pageable pageable,Blog blog) {
-
+    public Page<Blog> list(Pageable pageable, BlogQuery blog) {
         return blogDao.findAll(new Specification<Blog>() {
             @Override
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicateList = new ArrayList<>();
-                if (!"".equals(blog.getTitle()) && blog.getTitle() !=null){
+                if (blog.getTitle() !=null){
                     predicateList.add(criteriaBuilder.like(root.<String>get("title"),"%"+blog.getTitle()+"%"));
                 }
-                if (blog.getSort() !=null && !"".equals(blog.getSort())){
-                    predicateList.add(criteriaBuilder.equal(root.<Sort>get("sort"),blog.getSort().getId()));
+                if (blog.getSortId() !=null){
+                    predicateList.add(criteriaBuilder.equal(root.<Sort>get("sort"),blog.getSortId()));
                 }
-                if (blog.isRecommend()){
-                    predicateList.add(criteriaBuilder.equal(root.<Boolean>get("recommend"),blog.isRecommend()));
+                if (blog.getRecommend()!=null){
+                    predicateList.add(criteriaBuilder.equal(root.<Boolean>get("recommend"),blog.getRecommend()));
                 }
                 criteriaQuery.where(predicateList.toArray(new Predicate[predicateList.size()]));
-                return null;
+                return criteriaQuery.getRestriction();
             }
         },pageable);
     }

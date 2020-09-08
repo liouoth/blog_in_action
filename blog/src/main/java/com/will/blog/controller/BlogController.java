@@ -2,8 +2,12 @@ package com.will.blog.controller;
 
 import com.will.blog.entity.Blog;
 import com.will.blog.entity.Tag;
+import com.will.blog.service.BlogService;
+import com.will.blog.service.SortService;
 import com.will.blog.service.TagService;
+import com.will.blog.vo.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -22,12 +26,27 @@ import javax.validation.Valid;
 @RequestMapping("/admin")
 public class BlogController {
     @Autowired
-    private TagService tagService;
+    private BlogService blogService;
 
-    @GetMapping("/blogs")
+    @Autowired
+    private SortService sortService;
+
+    @GetMapping("/blogs_m")
     public String blogs(@PageableDefault(size = 2, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                                Pageable pageable, Blog blog, Model model) {
-        return "/admin/blogs";
+                                Pageable pageable, BlogQuery blog, Model model) {
+        Page page = blogService.list(pageable,blog);
+        model.addAttribute("page",page);
+        model.addAttribute("sorts",sortService.listAll());
+        return "/admin/blogs_m";
     }
+
+    @PostMapping("/blogs/search")
+    public String search(@PageableDefault(size = 2, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+                                Pageable pageable, BlogQuery blog, Model model) {
+        Page page = blogService.list(pageable,blog);
+        model.addAttribute("page",page);
+        return "/admin/blogs_m :: blog_list";
+    }
+
 
 }

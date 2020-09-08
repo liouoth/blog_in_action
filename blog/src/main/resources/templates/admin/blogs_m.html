@@ -10,7 +10,7 @@
 <div class="ui attached pointing menu">
     <div class="container ui">
         <div class="right menu">
-            <a th:href="@{/admin/blogs}" class="item">发布</a>
+            <a th:href="@{/admin/blog}" class="item">发布</a>
             <a th:href="@{/admin/blogs_m}" class="active teal item">列表</a>
         </div>
     </div>
@@ -19,18 +19,19 @@
 <main class="m-padded-tb-big m-container-small">
     <div class="ui container">
         <form action="" class="ui segment secondary form">
+            <input name="page" type="hidden">
             <div class="inline fields">
                 <div class="field">
                     <input type="text" name="title" placeholder="标题">
                 </div>
                 <div class="field">
                     <div class="ui selection dropdown">
-                        <input type="text" name="icon">
+                        <input type="hidden" name="sortId">
                         <i class="icon dropdown"></i>
                         <div class="default text">分类</div>
                         <div class="menu">
-                            <div class="item" data-value="1">java</div>
-                            <div class="item" data-value="2">python</div>
+                            <div class="item" data-value=""></div>
+                            <div th:each="sort : ${sorts}" class="item" th:data-value="${sort.id}" th:text="${sort.name}"></div>
                         </div>
                     </div>
                 </div>
@@ -41,49 +42,50 @@
                     </div>
                 </div>
                 <div class="field">
-                    <div class="ui button">
+                    <div class="ui button" onclick="load_data()">
                         <i class="icon search"></i>搜索
                     </div>
                 </div>
             </div>
         </form>
-        <table class="ui compact teal celled striped table">
-            <thead>
-            <tr>
-                <th></th>
-                <th>标题</th>
-                <th>类型</th>
-                <th>推荐</th>
-                <th>更新时间</th>
-                <th>操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="blog,iterStat : ${page.content}">
-                <td th:text="iterStat.count"></td>
-                <td th:text="${blog.title}"></td>
-                <td th:text="${blog.type.name}"></td>
-                <td th:text="${blog.recommend} ? '是':'否'"></td>
-                <td th:text="${blog.updateTime}"></td>
-                <td>
-                    <a th:href="@{/admin/blog/{id}/input(id=${blog.id})}" class="ui mini teal button">编辑</a>
-                    <a th:href="@{/admin/blog/{id}/delete(id=${blog.id})}" class="ui mini orange button">删除</a>
-                </td>
-            </tr>
-            </tbody>
-            <tfoot>
+        <div id="refresh_container">
+            <table class="ui compact teal celled striped table" th:fragment="blog_list">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>标题</th>
+                    <th>类型</th>
+                    <th>推荐</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="blog,iterStat : ${page.content}">
+                    <td th:text="${iterStat.count}"></td>
+                    <td th:text="${blog.title}"></td>
+                    <td th:text="${blog?.sort?.name}"></td>
+                    <td th:text="${blog.recommend} ? '是':'否'"></td>
+                    <td th:text="${blog.updateTime}"></td>
+                    <td>
+                        <a th:href="@{/admin/blog/{id}/input(id=${blog.id})}" class="ui mini teal button">编辑</a>
+                        <a th:href="@{/admin/blog/{id}/delete(id=${blog.id})}" class="ui mini orange button">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
                 <tr>
                     <th colspan="6">
-                        <div class="ui mini pagination menu">
-                            <a th:href="" class="item" th:unless="">上一页</a>
-                            <a href="" class="item">下一页</a>
+                        <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
+                            <a onclick="page(this)" th:attr="date-page=${page.number}-1" th:unless="${page.first}" class="item">上一页</a>
+                            <a onclick="page(this)" th:attr="date-page=${page.number}+1" th:unless="${page.last}" class="item">下一页</a>
                         </div>
                         <a href="" class="ui mini right floated basic teal button">新增</a>
                     </th>
                 </tr>
-
-            </tfoot>
-        </table>
+                </tfoot>
+            </table>
+        </div>
     </div>
 </main>
 <!--footer-->
@@ -91,4 +93,26 @@
 </body>
 <!--/*/<th:block th:replace="admin/_fragments  :: common_script">/*/-->
 <!--/*/</th:block >/*/-->
+<script>
+    $(function () {
+        $('.ui.dropdown').dropdown();
+    });
+
+    function page(obj) {
+        $("[name='page']").val($(obj).data['page']);
+        //动态更新结构
+        load_data();
+    }
+
+    function load_data() {
+        console.log($("[name='recommend']").val());
+        $("#refresh_container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search",{
+                title:$("[name='title']").val(),
+                sortId:$("[name='sortId']").val(),
+                recommend:$("[name='recommend']").val(),
+                page:$("[name='page']").val()
+            }
+        )
+    }
+</script>
 </html>
