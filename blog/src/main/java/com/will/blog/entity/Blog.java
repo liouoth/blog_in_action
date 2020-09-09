@@ -24,13 +24,13 @@ public class Blog {
 
     private Integer views;
 
-    private Boolean isAllowedPraise;
+    private Boolean allowedPraise;
 
-    private Boolean isAllowedShare;
+    private Boolean allowedShare;
 
-    private Boolean isAllowedComment;
+    private Boolean allowedComment;
 
-    private Boolean isPublished;
+    private Boolean published;
 
     private Boolean recommend;
 
@@ -108,35 +108,35 @@ public class Blog {
     }
 
     public Boolean getAllowedPraise() {
-        return isAllowedPraise;
+        return allowedPraise;
     }
 
     public void setAllowedPraise(Boolean allowedPraise) {
-        isAllowedPraise = allowedPraise;
+        this.allowedPraise = allowedPraise;
     }
 
     public Boolean getAllowedShare() {
-        return isAllowedShare;
+        return allowedShare;
     }
 
     public void setAllowedShare(Boolean allowedShare) {
-        isAllowedShare = allowedShare;
+        this.allowedShare = allowedShare;
     }
 
     public Boolean getAllowedComment() {
-        return isAllowedComment;
+        return allowedComment;
     }
 
     public void setAllowedComment(Boolean allowedComment) {
-        isAllowedComment = allowedComment;
+        this.allowedComment = allowedComment;
     }
 
     public Boolean getPublished() {
-        return isPublished;
+        return published;
     }
 
     public void setPublished(Boolean published) {
-        isPublished = published;
+        this.published = published;
     }
 
     public Boolean getRecommend() {

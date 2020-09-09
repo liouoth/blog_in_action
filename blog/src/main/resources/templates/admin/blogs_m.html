@@ -77,8 +77,8 @@
                 <tr>
                     <th colspan="6">
                         <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
-                            <a onclick="page(this)" th:attr="date-page=${page.number}-1" th:unless="${page.first}" class="item">上一页</a>
-                            <a onclick="page(this)" th:attr="date-page=${page.number}+1" th:unless="${page.last}" class="item">下一页</a>
+                            <a onclick="page(this)" th:attr="data-page=${page.number}-1" th:unless="${page.first}" class="item">上一页</a>
+                            <a onclick="page(this)" th:attr="data-page=${page.number}+1" th:unless="${page.last}" class="item">下一页</a>
                         </div>
                         <a th:href="@{/admin/blog/input}" class="ui mini right floated basic teal button">新增</a>
                     </th>
@@ -110,13 +110,14 @@
     });
 
     function page(obj) {
-        $("[name='page']").val($(obj).data['page']);
+        $("[name='page']").val($(obj).data('page'));
+        console.log($("[name='page']").val());
+        console.log($(obj).data('page'));
         //动态更新结构
         load_data();
     }
 
     function load_data() {
-        console.log($("[name='recommend']").val());
         $("#refresh_container").load(/*[[@{/admin/blogs/search}]]*/"/admin/blogs/search",{
                 title:$("[name='title']").val(),
                 sortId:$("[name='sortId']").val(),

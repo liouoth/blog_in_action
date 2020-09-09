@@ -15,10 +15,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
@@ -68,7 +65,7 @@ public class BlogController {
 
 
     @PostMapping("/blog")
-    public String save(@Valid Blog blog, RedirectAttributes attributes, HttpSession session) {
+    public String save(Blog blog, RedirectAttributes attributes, HttpSession session) {
         blog.setUser((User) session.getAttribute("user"));
         blog.setSort(sortService.get(blog.getSort().getId()));
         blog.setTags(tagService.parse(blog.getTagIds()));
@@ -78,6 +75,6 @@ public class BlogController {
         }else{
             attributes.addFlashAttribute("message","操作成功！");
         }
-        return "/admin/blog";
+        return "redirect:/admin/blogs_m";
     }
 }
