@@ -64,17 +64,17 @@ public class BlogServiceImpl implements BlogService {
             @Override
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicateList = new ArrayList<>();
-                if (blog.getTitle() !=null){
+                if (blog.getTitle() !=null&&!"".equals(blog.getTitle())){
                     predicateList.add(criteriaBuilder.like(root.<String>get("title"),"%"+blog.getTitle()+"%"));
                 }
                 if (blog.getSortId() !=null){
                     predicateList.add(criteriaBuilder.equal(root.<Sort>get("sort"),blog.getSortId()));
                 }
-                if (blog.getRecommend()!=null){
+                if (blog.getRecommend()!=null&&blog.getRecommend()!=false){
                     predicateList.add(criteriaBuilder.equal(root.<Boolean>get("recommend"),blog.getRecommend()));
                 }
                 criteriaQuery.where(predicateList.toArray(new Predicate[predicateList.size()]));
-                return criteriaQuery.getRestriction();
+                return null;
             }
         },pageable);
     }

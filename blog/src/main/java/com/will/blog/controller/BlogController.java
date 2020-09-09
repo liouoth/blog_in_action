@@ -55,6 +55,14 @@ public class BlogController {
         return "/admin/blog";
     }
 
+    @GetMapping("/blog/{id}/input")
+    public String blogInput(@PathVariable Long id ,Model model) {
+        model.addAttribute("blog",blogService.get(id));
+        model.addAttribute("tags",tagService.listAll());
+        model.addAttribute("sorts",sortService.listAll());
+        return "/admin/blog";
+    }
+
     @PostMapping("/blogs/search")
     public String search(@PageableDefault(size = 2, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                 Pageable pageable, BlogQuery blog, Model model) {
