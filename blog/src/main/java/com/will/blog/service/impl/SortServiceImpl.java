@@ -6,6 +6,7 @@ import com.will.blog.service.SortService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,5 +59,13 @@ public class SortServiceImpl implements SortService {
     @Override
     public List<Sort> listAll() {
         return sortDao.findAll();
+    }
+
+    @Override
+    public List<Sort> listTopSort(Integer top) {
+        org.springframework.data.domain.Sort sort = org.springframework.data.domain.Sort.by(
+                org.springframework.data.domain.Sort.DEFAULT_DIRECTION,"blogList.size");
+        Pageable pageable = PageRequest.of(0,top,sort);
+        return sortDao.topSort(pageable);
     }
 }

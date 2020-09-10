@@ -199,3 +199,12 @@
     bottom:0 !important;
     right:0 !important;
 }
+
+/*min height*/
+.m-min-h-large{
+    min-height: 400px;
+}
+
+.m-min-h-big{
+    min-height: 600px;
+}

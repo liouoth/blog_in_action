@@ -6,7 +6,10 @@ import com.will.blog.entity.User;
 import com.will.blog.service.BlogService;
 import com.will.blog.service.SortService;
 import com.will.blog.service.TagService;
+import com.will.blog.service.impl.TagServiceImpl;
+import com.will.blog.util.BeanUtil;
 import com.will.blog.vo.BlogQuery;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,12 +21,15 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/admin")
 public class BlogController {
+    private final static int DEFAULT_PAGE_SIZE = 2;
+
     @Autowired
     private BlogService blogService;
     @Autowired
@@ -31,8 +37,9 @@ public class BlogController {
     @Autowired
     private TagService tagService;
 
+    //blog manager
     @GetMapping("/blogs_m")
-    public String blogs(@PageableDefault(size = 2, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+    public String blogs(@PageableDefault(size = DEFAULT_PAGE_SIZE, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                 Pageable pageable, BlogQuery blog, Model model) {
         Page page = blogService.list(pageable,blog);
         model.addAttribute("page",page);
@@ -40,44 +47,57 @@ public class BlogController {
         return "/admin/blogs_m";
     }
 
+    //enter a new blog page
     @GetMapping("/blog")
     public String blog(Model model) {
-        model.addAttribute("sorts",sortService.listAll());
-        model.addAttribute("tags",tagService.listAll());
-        return "/admin/blog";
-    }
-
-    @GetMapping("/blog/input")
-    public String blogInput(Model model) {
         model.addAttribute("blog",new Blog());
         model.addAttribute("tags",tagService.listAll());
         model.addAttribute("sorts",sortService.listAll());
         return "/admin/blog";
     }
 
+    //enter blog edit page
     @GetMapping("/blog/{id}/input")
-    public String blogInput(@PathVariable Long id ,Model model) {
-        model.addAttribute("blog",blogService.get(id));
+    public String blogEdit(@PathVariable Long id ,Model model) {
+        Blog blog = blogService.get(id);
+        blog.setSort(sortService.get(blog.getSort().getId()));
+        blog.setTagIds(TagServiceImpl.tag2String(blog.getTags()));
+        model.addAttribute("blog",blog);
         model.addAttribute("tags",tagService.listAll());
         model.addAttribute("sorts",sortService.listAll());
         return "/admin/blog";
     }
 
+    //delete blog
+    @GetMapping("/blog/{id}/delete")
+    public String blogEdit(@PathVariable Long id) {
+        blogService.delete(id);
+        return "redirect:/admin/blogs_m";
+    }
+
+    //search blog
     @PostMapping("/blogs/search")
-    public String search(@PageableDefault(size = 2, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+    public String search(@PageableDefault(size = DEFAULT_PAGE_SIZE, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                 Pageable pageable, BlogQuery blog, Model model) {
         Page page = blogService.list(pageable,blog);
         model.addAttribute("page",page);
         return "/admin/blogs_m :: blog_list";
     }
 
-
+    // edit/new blog
     @PostMapping("/blog")
     public String save(Blog blog, RedirectAttributes attributes, HttpSession session) {
         blog.setUser((User) session.getAttribute("user"));
         blog.setSort(sortService.get(blog.getSort().getId()));
         blog.setTags(tagService.parse(blog.getTagIds()));
-        Blog b = blogService.save(blog);
+        Blog b = null;
+        if (blog.getId()==null) {
+            b = blogService.save(blog);
+        }else {
+            Blog oldVersion = blogService.get(blog.getId());
+            BeanUtils.copyProperties(blog,oldVersion,BeanUtil.selectNullProp(blog));
+            b = blogService.update(oldVersion.getId(),oldVersion);
+        }
         if (b==null){
             attributes.addFlashAttribute("message","操作失败！");
         }else{

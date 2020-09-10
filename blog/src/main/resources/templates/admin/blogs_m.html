@@ -16,7 +16,7 @@
     </div>
 </div>
 <!-- main -->
-<main class="m-padded-tb-big m-container-small">
+<main class="m-padded-tb-big m-container m-min-h-big">
     <div class="ui container">
         <form action="" class="ui segment secondary form">
             <input name="page" type="hidden">
@@ -85,7 +85,7 @@
                             <a onclick="page(this)" th:attr="data-page=${page.number}-1" th:unless="${page.first}" class="item">上一页</a>
                             <a onclick="page(this)" th:attr="data-page=${page.number}+1" th:unless="${page.last}" class="item">下一页</a>
                         </div>
-                        <a th:href="@{/admin/blog/input}" class="ui mini right floated basic teal button">新增</a>
+                        <a th:href="@{/admin/blog}" class="ui mini right floated basic teal button">新增</a>
                     </th>
                 </tr>
                 </tfoot>

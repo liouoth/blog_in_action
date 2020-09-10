@@ -14,6 +14,6 @@ public interface SortService {
     Sort update(Long id,Sort sort);
     Sort findByName(String name);
     Page<Sort> list(Pageable pageable);
-
     List<Sort> listAll();
+    List<Sort> listTopSort(Integer top);
 }

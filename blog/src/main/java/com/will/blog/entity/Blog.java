@@ -1,5 +1,7 @@
 package com.will.blog.entity;
 
+import org.thymeleaf.spring5.processor.SpringObjectTagProcessor;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,6 +19,8 @@ public class Blog {
     @Lob
     @Basic(fetch = FetchType.LAZY)
     private String content;
+
+    private String description;
 
     private String bannerPic;
 
@@ -201,5 +205,13 @@ public class Blog {
 
     public void setTagIds(String tagIds) {
         this.tagIds = tagIds;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

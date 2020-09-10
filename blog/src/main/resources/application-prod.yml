@@ -1,7 +1,13 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
+
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    password: Mwq@09230507
+    username: root
 
 logging:
   level:
@@ -11,4 +17,4 @@ logging:
     name: log/blog-prod.log
 
 server:
-  port: 1080
+  port: 8080

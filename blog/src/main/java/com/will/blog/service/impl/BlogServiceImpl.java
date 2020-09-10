@@ -6,10 +6,12 @@ import com.will.blog.entity.Blog;
 import com.will.blog.entity.Sort;
 import com.will.blog.service.BlogService;
 import com.will.blog.service.SortService;
+import com.will.blog.service.TagService;
 import com.will.blog.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -63,19 +65,28 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.findAll(new Specification<Blog>() {
             @Override
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                List<Predicate> predicateList = new ArrayList<>();
-                if (blog.getTitle() !=null&&!"".equals(blog.getTitle())){
-                    predicateList.add(criteriaBuilder.like(root.<String>get("title"),"%"+blog.getTitle()+"%"));
+                if (blog!=null) {
+                    List<Predicate> predicateList = new ArrayList<>();
+                    if (blog.getTitle() != null && !"".equals(blog.getTitle())) {
+                        predicateList.add(criteriaBuilder.like(root.<String>get("title"), "%" + blog.getTitle() + "%"));
+                    }
+                    if (blog.getSortId() != null) {
+                        predicateList.add(criteriaBuilder.equal(root.<Sort>get("sort"), blog.getSortId()));
+                    }
+                    if (blog.getRecommend() != null && blog.getRecommend() != false) {
+                        predicateList.add(criteriaBuilder.equal(root.<Boolean>get("recommend"), blog.getRecommend()));
+                    }
+                    criteriaQuery.where(predicateList.toArray(new Predicate[predicateList.size()]));
                 }
-                if (blog.getSortId() !=null){
-                    predicateList.add(criteriaBuilder.equal(root.<Sort>get("sort"),blog.getSortId()));
-                }
-                if (blog.getRecommend()!=null&&blog.getRecommend()!=false){
-                    predicateList.add(criteriaBuilder.equal(root.<Boolean>get("recommend"),blog.getRecommend()));
-                }
-                criteriaQuery.where(predicateList.toArray(new Predicate[predicateList.size()]));
                 return null;
             }
         },pageable);
+    }
+
+    @Override
+    public List<Blog> listTopBlog(int i) {
+        org.springframework.data.domain.Sort sort = org.springframework.data.domain.Sort.by(org.springframework.data.domain.Sort.DEFAULT_DIRECTION,"updateTime");
+        Pageable pageable = PageRequest.of(0,i, sort);
+        return blogDao.ListTopBlog(pageable);
     }
 }

@@ -20,30 +20,30 @@
                                 <h3 class="ui header teal">博客</h3>
                             </div>
                             <div class="right aligned column">
-                                共 <h2 class="ui header orange m-inline-block m-text-thin"> 14 </h2> 篇
+                                共 <h2 class="ui header orange m-inline-block m-text-thin" th:text="${page.totalPages}"> </h2> 篇
                             </div>
                         </div>
                     </div>
 
                     <!--content-->
-                    <div class="ui attached segment">
+                    <div class="ui attached segment" th:each="blog,iterStat:${page.content}">
                         <div class="ui padded segment vertical m-padded-tb-large">
                             <div class="ui grid stackable mobile reversed">
                                 <div class="eleven wide column">
-                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
-                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
+                                    <h3 class="ui header" th:text="${blog.title}"></h3>
+                                    <p class="m-text" th:text="${blog.description}"></p>
                                     <div class="ui grid middle aligned">
                                         <div class="twelve wide column">
                                             <div class="ui mini horizontal link list">
                                                 <div class="item">
                                                     <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
-                                                    <div class="content"><a class="header">liouoth</a></div>
+                                                    <div class="content"><a class="header" th:text="${blog.user.name}">liouoth</a></div>
                                                 </div>
                                                 <div class="item">
-                                                   <i class="icon calendar"></i> 2007-10-9 20:10:20
+                                                   <i class="icon calendar"></i> <span th:text="${blog.updateTime}"></span>
                                                 </div>
                                                 <div class="item">
-                                                    <i class="icon eye"></i>192
+                                                    <i class="icon eye"></i><span th:text="${blog.views}"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -55,185 +55,22 @@
                                 </div>
                                 <div class="five wide column">
                                     <a class="" href="#">
-                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui padded segment vertical m-padded-tb-large">
-                            <div class="ui grid stackable mobile reversed">
-                                <div class="eleven wide column">
-                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
-                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
-                                    <div class="ui grid middle aligned">
-                                        <div class="twelve wide column">
-                                            <div class="ui mini horizontal link list">
-                                                <div class="item">
-                                                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
-                                                    <div class="content"><a class="header">liouoth</a></div>
-                                                </div>
-                                                <div class="item">
-                                                    <i class="icon calendar"></i> 2007-10-9 20:10:20
-                                                </div>
-                                                <div class="item">
-                                                    <i class="icon eye"></i>192
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="four wide column right aligned">
-                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="five wide column">
-                                    <a class="" href="#">
-                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui padded segment vertical m-padded-tb-large">
-                            <div class="ui grid stackable mobile reversed">
-                                <div class="eleven wide column">
-                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
-                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
-                                    <div class="ui grid middle aligned">
-                                        <div class="twelve wide column">
-                                            <div class="ui mini horizontal link list">
-                                                <div class="item">
-                                                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
-                                                    <div class="content"><a class="header">liouoth</a></div>
-                                                </div>
-                                                <div class="item">
-                                                    <i class="icon calendar"></i> 2007-10-9 20:10:20
-                                                </div>
-                                                <div class="item">
-                                                    <i class="icon eye"></i>192
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="four wide column right aligned">
-                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="five wide column">
-                                    <a class="" href="#">
-                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui padded segment vertical m-padded-tb-large">
-                            <div class="ui grid stackable mobile reversed">
-                                <div class="eleven wide column">
-                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
-                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
-                                    <div class="ui grid middle aligned">
-                                        <div class="twelve wide column">
-                                            <div class="ui mini horizontal link list">
-                                                <div class="item">
-                                                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
-                                                    <div class="content"><a class="header">liouoth</a></div>
-                                                </div>
-                                                <div class="item">
-                                                    <i class="icon calendar"></i> 2007-10-9 20:10:20
-                                                </div>
-                                                <div class="item">
-                                                    <i class="icon eye"></i>192
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="four wide column right aligned">
-                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="five wide column">
-                                    <a class="" href="#">
-                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui padded segment vertical m-padded-tb-large">
-                            <div class="ui grid stackable mobile reversed">
-                                <div class="eleven wide column">
-                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
-                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
-                                    <div class="ui grid middle aligned">
-                                        <div class="twelve wide column">
-                                            <div class="ui mini horizontal link list">
-                                                <div class="item">
-                                                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
-                                                    <div class="content"><a class="header">liouoth</a></div>
-                                                </div>
-                                                <div class="item">
-                                                    <i class="icon calendar"></i> 2007-10-9 20:10:20
-                                                </div>
-                                                <div class="item">
-                                                    <i class="icon eye"></i>192
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="four wide column right aligned">
-                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="five wide column">
-                                    <a class="" href="#">
-                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ui padded segment vertical m-padded-tb-large">
-                            <div class="ui grid stackable mobile reversed">
-                                <div class="eleven wide column">
-                                    <h3 class="ui header">插入排序为什么优于冒泡排序？</h3>
-                                    <p class="m-text">插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。冒泡排序的最优时间复杂度xxxxxxxxxxxxxx，插入排序的。</p>
-                                    <div class="ui grid middle aligned">
-                                        <div class="twelve wide column">
-                                            <div class="ui mini horizontal link list">
-                                                <div class="item">
-                                                    <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
-                                                    <div class="content"><a class="header">liouoth</a></div>
-                                                </div>
-                                                <div class="item">
-                                                    <i class="icon calendar"></i> 2007-10-9 20:10:20
-                                                </div>
-                                                <div class="item">
-                                                    <i class="icon eye"></i>192
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="four wide column right aligned">
-                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="five wide column">
-                                    <a class="" href="#">
-                                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3472717332,4160859527&fm=26&gp=0.jpg" class="ui rounded image">
+                                        <img th:src="${blog.bannerPic}" class="ui rounded image">
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--footer-->
-                    <div class="ui segment">
+                    <div class="ui segment" th:if="${page.totalPages}>1">
                         <div class="ui two column grid">
                             <div class="column">
-                                <a class="ui teal button basic">上一页</a>
+                                <a class="ui teal button basic" th:href="@{/(page=${page.number-1})}"
+                                   th:unless="${page.first}">上一页</a>
                             </div>
                             <div class="column right aligned">
-                                <a class="ui teal button `basic">下一页</a>
+                                <a class="ui teal button basic" th:href="@{/${page.number+1})}"
+                                   th:unless="${page.last}">下一页</a>
                             </div>
                         </div>
                     </div>
@@ -252,28 +89,8 @@
                         </div>
                         <div class="ui teal segment">
                             <div class="ui fluid vertical menu">
-                                <a class="item">
-                                    数据结构
-                                    <div class="ui teal basic label">14</div>
-                                </a>
-                                <a class="item">
-                                    数据结构
-                                    <div class="ui teal basic label">14</div>
-                                </a>
-                                <a class="item">
-                                    数据结构
-                                    <div class="ui teal basic label">14</div>
-                                </a>
-                                <a class="item">
-                                    数据结构
-                                    <div class="ui teal basic label">14</div>
-                                </a>
-                                <a class="item">
-                                    数据结构
-                                    <div class="ui teal basic label">14</div>
-                                </a>
-                                <a class="item">
-                                    数据结构
+                                <a class="item" th:each="tag:${tags}">
+                                    <span th:text="${tag.name}"></span>
                                     <div class="ui teal basic label">14</div>
                                 </a>
                             </div>
@@ -291,25 +108,8 @@
                             </div>
                         </div>
                         <div class="ui teal segment">
-                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
-                                <div class="detail">12</div>
-                            </a>
-                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
-                                <div class="detail">12</div>
-                            </a>
-                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
-                                <div class="detail">12</div>
-                            </a>
-                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
-                                <div class="detail">12</div>
-                            </a>
-                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
-                                <div class="detail">12</div>
-                            </a>
-                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
-                                <div class="detail">12</div>
-                            </a>
-                            <a href="" class="ui teal basic label mini m-margin-tb-tiny">java
+                            <a href="" class="ui teal basic label mini m-margin-tb-tiny" th:each="sort:${sorts}">
+                                <span th:text="${sort.name}"></span>
                                 <div class="detail">12</div>
                             </a>
                         </div>
@@ -318,29 +118,8 @@
                         <div class="ui secondary segment">
                             <i class="icon bookmark"></i>最新推荐
                         </div>
-                        <div class="ui segment">
-                            <a href="" class="m-black m-text-thin">
-                                聚类分析
-                            </a>
-                        </div>
-                        <div class="ui segment">
-                            <a href="" class="m-black m-text-thin">
-                                聚类分析
-                            </a>
-                        </div>
-                        <div class="ui segment">
-                            <a href="" class="m-black m-text-thin">
-                                聚类分析
-                            </a>
-                        </div>
-                        <div class="ui segment">
-                            <a href="" class="m-black m-text-thin">
-                                聚类分析
-                            </a>
-                        </div>
-                        <div class="ui segment">
-                            <a href="" class="m-black m-text-thin">
-                                聚类分析
+                        <div class="ui segment" th:each="newBlog:${blogs}">
+                            <a href="" class="m-black m-text-thin" th:text="${newBlog.title}">
                             </a>
                         </div>
                     </div>

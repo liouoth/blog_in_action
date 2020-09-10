@@ -16,6 +16,12 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
+    //admin index
+    @RequestMapping("")
+    public String adminIndex() {
+        return "/admin/login";
+    }
+
     @RequestMapping("/login")
     public String login(@RequestParam String username,
                         @RequestParam String password,
@@ -37,7 +43,4 @@ public class AdminController {
         session.removeAttribute("user");
         return "redirect:/admin";
     }
-
-
-
 }

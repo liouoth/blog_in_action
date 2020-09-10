@@ -13,7 +13,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>blog</name>
     <description>Will Of Coding</description>
-
     <properties>
         <java.version>1.8</java.version>
         <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>

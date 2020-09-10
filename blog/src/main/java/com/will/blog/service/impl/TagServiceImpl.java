@@ -7,13 +7,16 @@ import com.will.blog.service.TagService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringJoiner;
 
 @Service
 public class TagServiceImpl implements TagService {
@@ -67,8 +70,23 @@ public class TagServiceImpl implements TagService {
         return tagDao.findAllById(idList);
     }
 
+    public static String tag2String(List<Tag> list) {
+        StringJoiner joiner = new StringJoiner(",","","");
+        list.stream().filter(l->l.getId()!=null).forEach(l->{
+            joiner.add(String.valueOf(l.getId()));
+        });
+        return joiner.toString();
+    }
+
     @Override
     public List<Tag> listAll() {
         return tagDao.findAll();
+    }
+
+    @Override
+    public List<Tag> listTopTag(int i) {
+        Sort sort = Sort.by(Sort.DEFAULT_DIRECTION,"blogList.size");
+        Pageable pageable = PageRequest.of(0,i, sort);
+        return tagDao.listTopTag(pageable);
     }
 }

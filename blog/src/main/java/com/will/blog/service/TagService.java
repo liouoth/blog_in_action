@@ -17,4 +17,5 @@ public interface TagService {
     Page<Tag> list(Pageable pageable);
     List<Tag> parse(String ids);
     List<Tag> listAll();
+    List<Tag> listTopTag(int i);
 }
