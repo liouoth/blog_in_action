@@ -31,7 +31,7 @@
                             <div class="ui grid stackable mobile reversed">
                                 <div class="eleven wide column">
                                     <h3 class="ui header">
-                                        <a th:text="${blog.title}" href="#"></a>
+                                        <a th:text="${blog.title}" th:href="@{/blog/{id}(id=${blog.id})}"></a>
                                     </h3>
                                     <p class="m-text" th:text="${blog.description}"></p>
                                     <div class="ui grid middle aligned">

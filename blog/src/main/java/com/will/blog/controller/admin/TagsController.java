@@ -1,4 +1,4 @@
-package com.will.blog.controller;
+package com.will.blog.controller.admin;
 
 import com.will.blog.entity.Tag;
 import com.will.blog.service.TagService;

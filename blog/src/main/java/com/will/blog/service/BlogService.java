@@ -11,6 +11,7 @@ import java.util.List;
 public interface BlogService {
     Blog save(Blog blog);
     Blog get(Long id);
+    Blog getAndConvert(Long id);
     void delete(Long id);
     Blog update(Long id, Blog blog);
     Page<Blog> list(Pageable pageable, BlogQuery blog);

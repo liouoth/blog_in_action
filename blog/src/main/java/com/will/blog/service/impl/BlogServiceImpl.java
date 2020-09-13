@@ -7,6 +7,7 @@ import com.will.blog.entity.Sort;
 import com.will.blog.service.BlogService;
 import com.will.blog.service.SortService;
 import com.will.blog.service.TagService;
+import com.will.blog.util.MarkdownUtil;
 import com.will.blog.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,19 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Blog get(Long id) {
         return blogDao.getOne(id);
+    }
+
+    @Override
+    public Blog getAndConvert(Long id) {
+        Blog blog = get(id);
+        if (blog==null){
+            throw  new RuntimeException();
+        }
+        Blog b = new Blog();
+        BeanUtils.copyProperties(blog,b);
+        String content = MarkdownUtil.blogExtensions(blog.getContent());
+        b.setContent(content);
+        return b;
     }
 
     @Override
