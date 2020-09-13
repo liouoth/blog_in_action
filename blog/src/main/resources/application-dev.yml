@@ -6,6 +6,7 @@ spring:
     password: 123456
     username: root
 
+
   # jpa
   jpa:
     show-sql: true

@@ -19,7 +19,7 @@ public class AdminController {
     //admin index
     @RequestMapping("")
     public String adminIndex() {
-        return "/admin/login";
+        return "admin/login";
     }
 
     @RequestMapping("/login")

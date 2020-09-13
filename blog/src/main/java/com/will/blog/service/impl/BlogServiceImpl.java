@@ -89,4 +89,9 @@ public class BlogServiceImpl implements BlogService {
         Pageable pageable = PageRequest.of(0,i, sort);
         return blogDao.ListTopBlog(pageable);
     }
+
+    @Override
+    public Page search(Pageable pageable, String query) {
+        return blogDao.search("%"+query+"%",pageable);
+    }
 }
