@@ -19,7 +19,7 @@
             <div class="ui horizontal middle aligned link list">
                 <div class="item m-margin-r-tiny">
                     <img th:src="@{/img/avatar.jpg}" class="ui avatar image">
-                    <div class="content"><a class="header" th:text="${blog.user.name}"></a></div>
+                    <div class="content"><a class="header" th:text="${blog.user.nickname}"></a></div>
                 </div>
                 <div class="item m-margin-r-tiny">
                     <i class="icon calendar"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}"></span>
@@ -73,88 +73,73 @@
                     <p>原创内容，请勿搬运</p>
                 </div>
                 <div class="ui five wide column">
-                    <img src="../static/img/QRcode.png" alt="" class="ui right floated rounded bordered image"
+                    <img th:src="@{/img/QRcode.png}" alt="" class="ui right floated rounded bordered image"
                          width="110px">
                 </div>
             </div>
         </div>
-        <div id="comment-content" class="ui bottom attached segment">
-            <div class="ui segment">
-                <div class="ui threaded comments">
+        <div class="ui bottom attached segment" id="comment-container">
+            <div class="ui segment" th:fragment="blog_comment">
+                <div class="ui threaded comments" style="max-width: 100%">
                     <h3 class="ui dividing header">Comments</h3>
-                    <div class="comment">
+                    <div class="comment" th:each="comment : ${comments}">
                         <a class="avatar">
-                            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">
+                            <img th:src="@{${comment.avatar}}">
                         </a>
                         <div class="content">
-                            <a class="author">Matt</a>
+                            <a class="author" th:text="${comment.nickname}"></a>
                             <div class="metadata">
-                                <span class="date">Today at 5:42PM</span>
+                                <span class="date" th:text="${#dates.format(comment.sendTime,'yyyy-MM-dd')}"></span>
                             </div>
-                            <div class="text">
-                                How artistic!
+                            <div class="text" th:text="${comment.content}">
                             </div>
                             <div class="actions">
-                                <a class="reply">Reply</a>
+                                <a class="reply" onclick="reply(this)"
+                                   th:attr="data-commentid='${comment.id}',data-commentnickname='${comment.nickname}'">Reply</a>
                             </div>
                         </div>
                     </div>
-                    <div class="comment">
-                        <a class="avatar">
-                            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">
-                        </a>
-                        <div class="content">
-                            <a class="author">Elliot Fu</a>
-                            <div class="metadata">
-                                <span class="date">Yesterday at 12:30AM</span>
-                            </div>
-                            <div class="text">
-                                <p>This has been very useful for my research. Thanks as well!</p>
-                            </div>
-                            <div class="actions">
-                                <a class="reply">Reply</a>
-                            </div>
-                        </div>
-                        <div class="comments">
-                            <div class="comment">
-                                <a class="avatar">
-                                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">
-                                </a>
-                                <div class="content">
-                                    <a class="author">Jenny Hess</a>
-                                    <div class="metadata">
-                                        <span class="date">Just now</span>
-                                    </div>
-                                    <div class="text">
-                                        Elliot you are always so right :)
-                                    </div>
-                                    <div class="actions">
-                                        <a class="reply">Reply</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment">
-                        <a class="avatar">
-                            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">
-                        </a>
-                        <div class="content">
-                            <a class="author">Joe Henderson</a>
-                            <div class="metadata">
-                                <span class="date">5 days ago</span>
-                            </div>
-                            <div class="text">
-                                Dude, this is awesome. Thanks so much
-                            </div>
-                            <div class="actions">
-                                <a class="reply">Reply</a>
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="comment">-->
+<!--                        <a class="avatar">-->
+<!--                            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">-->
+<!--                        </a>-->
+<!--                        <div class="content">-->
+<!--                            <a class="author">Elliot Fu</a>-->
+<!--                            <div class="metadata">-->
+<!--                                <span class="date">Yesterday at 12:30AM</span>-->
+<!--                            </div>-->
+<!--                            <div class="text">-->
+<!--                                <p>This has been very useful for my research. Thanks as well!</p>-->
+<!--                            </div>-->
+<!--                            <div class="actions">-->
+<!--                                <a class="reply">Reply</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="comments">-->
+<!--                            <div class="comment">-->
+<!--                                <a class="avatar">-->
+<!--                                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">-->
+<!--                                </a>-->
+<!--                                <div class="content">-->
+<!--                                    <a class="author">Jenny Hess</a>-->
+<!--                                    <div class="metadata">-->
+<!--                                        <span class="date">Just now</span>-->
+<!--                                    </div>-->
+<!--                                    <div class="text">-->
+<!--                                        Elliot you are always so right :)-->
+<!--                                    </div>-->
+<!--                                    <div class="actions">-->
+<!--                                        <a class="reply">Reply</a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </div>
-            <div class="ui form">
+            <form class="ui form" id="comment-form">
+                <input type="text" name="blog.id" th:value="${blog.id}">
+                <input type="text" name="parentComment.id" th:value="-1">
                 <div class="field">
                     <textarea name="content" placeholder="请输入评论信息...."></textarea>
                 </div>
@@ -172,10 +157,13 @@
                         </div>
                     </div>
                     <div class="field m-mobile-fill-width">
-                        <button class="ui teal button"><i class="icon send"></i>发布</button>
+                        <button class="ui teal button" id="comment-post"><i class="icon send"></i>发布</button>
                     </div>
                 </div>
-            </div>
+                <div class="field">
+                    <div class="ui error mini message"></div>
+                </div>
+            </form>
         </div>
     </div>
 </main>
@@ -209,34 +197,8 @@
 <script th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
 <script th:src="@{/lib/scrollTo/jquery.scrollTo.min.js}"></script>
 <script>
+    //init
     $(function () {
-        //
-        $("#nav-btn").click(function () {
-            $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
-        });
-
-        $("#pay-btn").popup({
-            popup: $('#pay-qr-codes'),
-            position: "bottom center",
-            on: "click"
-        });
-        $("#toc-btn").popup({
-            popup: $('#toc'),
-            position: "top center",
-            on: "click"
-        });
-        $("#wechat-btn").popup({
-            popup: $('#wechat'),
-            position: "left center",
-            on: "click"
-        });
-        tocbot.init({
-            tocSelector: '.js-toc',
-            contentSelector: '.js-toc-content',
-            headingSelector: 'h1, h2, h3',
-            hasInnerContainers: true
-        });
-
         var qrcode = new QRCode("wechat", {
             text: window.location.href,
             width: 100,
@@ -246,22 +208,97 @@
             correctLevel : QRCode.CorrectLevel.H
         });
 
-        $('#toTop').click(
-            function () {
-                $.scrollTo(0,800);
-            }
-        );
-
         var waypoint = new Waypoint({
             element: document.getElementById('waypoint'),
             handler: function(direction) {
                 if (direction =='down'){
-                    $('#tool-bar').show(500);
+                    $('#tool-bar').show(100);
                 } else {
                     $('#tool-bar').hide(500);
                 }
             }
-        })
+        });
+    });
+    $(function () {
+        $("#comment-container").load(/*[[@{/commens/{id}(id=${blog.id})}]]*/"");
+    });
+</script>
+<script>
+    //event
+    $("#nav-btn").click(function () {
+        $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
+    });
+
+    $("#pay-btn").popup({
+        popup: $('#pay-qr-codes'),
+        position: "bottom center",
+        on: "click"
+    });
+
+    $("#toc-btn").popup({
+        popup: $('#toc'),
+        position: "top center",
+        on: "click"
+    });
+
+    $("#wechat-btn").popup({
+        popup: $('#wechat'),
+        position: "left center",
+        on: "click"
+    });
+
+    tocbot.init({
+        tocSelector: '.js-toc',
+        contentSelector: '.js-toc-content',
+        headingSelector: 'h1, h2, h3',
+        hasInnerContainers: true
+    });
+
+    $('#toTop').click(
+        function () {
+            $.scrollTo(0,800);
+        }
+    );
+
+    $("#comment-post").click(function () {
+        var isValidate = $(".ui.form").form("validate form");
+        if (isValidate){
+            load_comment();
+        }else {
+        }
     })
+</script>
+<script>
+    $(".ui.form").form({
+            fields: {
+                content: {
+                    identifier: 'content',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt: 'Please enter your content!'
+                        }
+                    ]
+                },
+                nickname: {
+                    identifier: 'nickname',
+                    rules: [
+                        {
+                            type: 'empty',
+                            prompt: 'Please enter your nickname!'
+                        }
+                    ]
+                },
+                email: {
+                    identifier: 'email',
+                    rules: [
+                        {
+                            type: 'email',
+                            prompt: 'Please enter your email!'
+                        }
+                    ]
+                }
+            }
+        });
 </script>
 </html>

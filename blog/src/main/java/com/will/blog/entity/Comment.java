@@ -1,5 +1,7 @@
 package com.will.blog.entity;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
