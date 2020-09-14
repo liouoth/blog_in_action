@@ -8,15 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
 @Controller
-@RequestMapping("/comment")
 public class CommentController {
     @Autowired
     private BlogService blogService;
@@ -26,18 +22,18 @@ public class CommentController {
     @Value("${system.anonymous.avatar}")
     private String avatar;
 
-    @GetMapping("/{id}")
+    @GetMapping("/comments/{id}")
     public String comments(@PathVariable Long id, Model model){
         model.addAttribute("comments",commentService.listByBlogId(id));
-        return "blog :: blog_comment";
+        return "blog :: commentList";
     }
 
-    @PostMapping("")
-    public String comment(Comment comment,Model model){
+    @PostMapping("/comments")
+    public String comment(Comment comment){
         Long blogId = comment.getBlog().getId();
         comment.setBlog(blogService.get(blogId));
         comment.setAvatar(avatar);
         commentService.save(comment);
-        return "redirect:/comment/"+comment.getBlog().getId();
+        return "redirect:/comments/"+blogId;
     }
 }

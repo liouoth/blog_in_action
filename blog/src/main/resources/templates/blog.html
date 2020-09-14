@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:replace="_fragments :: common_head(~{::title})">
         <title>Blog | Will Of Coding</title>
@@ -38,14 +39,12 @@
                 <div class="ui orange basic label" th:text="${blog.flag}"></div>
             </div>
             <h2 class="ui header center aligned" th:text="${blog.title}"></h2>
-            <div id="content"
-                 class="m-padded-lr-responsive m-padded-tb-big typo typo-selectionv js-toc-content"
-                 th:utext="${blog.content}"
-            >
+            <div id="content" class="m-padded-lr-responsive m-padded-tb-big typo typo-selectionv js-toc-content"
+                 th:utext="${blog.content}">
             </div>
             <div class="m-padded-lr-responsive">
                 <div href="" class="ui label basic teal" th:each="tag : ${blog.tags}"
-                th:text="${tag.name}"></div>
+                     th:text="${tag.name}"></div>
             </div>
             <div class="ui center aligned segment basic">
                 <button class="ui orange basic circular button" id="pay-btn">赞赏</button>
@@ -78,66 +77,32 @@
                 </div>
             </div>
         </div>
-        <div class="ui bottom attached segment" id="comment-container">
-            <div class="ui segment" th:fragment="blog_comment">
-                <div class="ui threaded comments" style="max-width: 100%">
-                    <h3 class="ui dividing header">Comments</h3>
-                    <div class="comment" th:each="comment : ${comments}">
-                        <a class="avatar">
-                            <img th:src="@{${comment.avatar}}">
-                        </a>
-                        <div class="content">
-                            <a class="author" th:text="${comment.nickname}"></a>
-                            <div class="metadata">
-                                <span class="date" th:text="${#dates.format(comment.sendTime,'yyyy-MM-dd')}"></span>
-                            </div>
-                            <div class="text" th:text="${comment.content}">
-                            </div>
-                            <div class="actions">
-                                <a class="reply" onclick="reply(this)"
-                                   th:attr="data-commentid='${comment.id}',data-commentnickname='${comment.nickname}'">Reply</a>
+        <div class="ui bottom attached segment">
+            <div class="ui segment" id="comment-container">
+                <div th:fragment="commentList">
+                    <div class="ui threaded comments" style="max-width: 100%">
+                        <h3 class="ui dividing header">Comments</h3>
+                        <div class="comment" th:each="comment : ${comments}">
+                            <a class="avatar">
+                                <img th:src="@{${comment.avatar}}">
+                            </a>
+                            <div class="content">
+                                <a class="author" th:text="${comment.nickname}"></a>
+                                <div class="metadata">
+                                    <span class="date" th:text="${#dates.format(comment.sendTime,'yyyy-MM-dd')}"></span>
+                                </div>
+                                <div class="text" th:text="${comment.content}">
+                                </div>
+                                <div class="actions">
+                                    <a class="reply" onclick="reply(this)"
+                                       th:attr="data-commentid=${comment.id},data-commentnickname=${comment.nickname}">Reply</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-<!--                    <div class="comment">-->
-<!--                        <a class="avatar">-->
-<!--                            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">-->
-<!--                        </a>-->
-<!--                        <div class="content">-->
-<!--                            <a class="author">Elliot Fu</a>-->
-<!--                            <div class="metadata">-->
-<!--                                <span class="date">Yesterday at 12:30AM</span>-->
-<!--                            </div>-->
-<!--                            <div class="text">-->
-<!--                                <p>This has been very useful for my research. Thanks as well!</p>-->
-<!--                            </div>-->
-<!--                            <div class="actions">-->
-<!--                                <a class="reply">Reply</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="comments">-->
-<!--                            <div class="comment">-->
-<!--                                <a class="avatar">-->
-<!--                                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596394000568&di=5be8b9a086f79170a45ec2fc7780dbef&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F04%2F20150504013225_XZNCu.thumb.700_0.jpeg">-->
-<!--                                </a>-->
-<!--                                <div class="content">-->
-<!--                                    <a class="author">Jenny Hess</a>-->
-<!--                                    <div class="metadata">-->
-<!--                                        <span class="date">Just now</span>-->
-<!--                                    </div>-->
-<!--                                    <div class="text">-->
-<!--                                        Elliot you are always so right :)-->
-<!--                                    </div>-->
-<!--                                    <div class="actions">-->
-<!--                                        <a class="reply">Reply</a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
                 </div>
             </div>
-            <form class="ui form" id="comment-form">
+            <div class="ui form" id="comment-form">
                 <input type="text" name="blog.id" th:value="${blog.id}">
                 <input type="text" name="parentComment.id" th:value="-1">
                 <div class="field">
@@ -157,13 +122,13 @@
                         </div>
                     </div>
                     <div class="field m-mobile-fill-width">
-                        <button class="ui teal button" id="comment-post"><i class="icon send"></i>发布</button>
+                        <button type="button" class="ui teal button" id="comment-post"><i class="icon send"></i>发布</button>
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui error mini message"></div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </main>
@@ -171,7 +136,7 @@
 <!--tool-->
 <div class="m-padded ui vertical icon buttons m-fixed m-right-bottom" style="display: none" id="tool-bar">
     <button type="button" class="ui teal button" id="toc-btn">目录</button>
-    <a href="#comment-content" class="ui teal button">留言</a>
+    <a href="#comment-form" class="ui teal button">留言</a>
     <button type="button" class="ui icon button" id="wechat-btn"><i class="icon weixin"></i></button>
     <button type="button" class="ui icon teal button" id="toTop"><i class="icon chevron up"></i></button>
 </div>
@@ -183,7 +148,7 @@
 
 <!--wechat-->
 <div class="ui flowing popup top left transition hidden" id="wechat" style="width: 120px">
-<!--    <img th:src="@{/img/QRcode.png}" class="ui rounded image">-->
+    <!--    <img th:src="@{/img/QRcode.png}" class="ui rounded image">-->
 </div>
 
 <!--footer-->
@@ -196,31 +161,26 @@
 <script th:src="@{/lib/qrcode/qrcode.min.js}"></script>
 <script th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
 <script th:src="@{/lib/scrollTo/jquery.scrollTo.min.js}"></script>
-<script>
+<script th:inline="javascript">
     //init
-    $(function () {
-        var qrcode = new QRCode("wechat", {
+    var qrcode = new QRCode("wechat", {
             text: window.location.href,
             width: 100,
             height: 100,
-            colorDark : "#000000",
-            colorLight : "#ffffff",
-            correctLevel : QRCode.CorrectLevel.H
-        });
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+    });
 
-        var waypoint = new Waypoint({
+    var waypoint = new Waypoint({
             element: document.getElementById('waypoint'),
-            handler: function(direction) {
-                if (direction =='down'){
+            handler: function (direction) {
+                if (direction == 'down') {
                     $('#tool-bar').show(100);
                 } else {
                     $('#tool-bar').hide(500);
                 }
             }
-        });
-    });
-    $(function () {
-        $("#comment-container").load(/*[[@{/commens/{id}(id=${blog.id})}]]*/"");
     });
 </script>
 <script>
@@ -256,49 +216,82 @@
 
     $('#toTop').click(
         function () {
-            $.scrollTo(0,800);
+            $.scrollTo(0, 800);
         }
     );
 
     $("#comment-post").click(function () {
         var isValidate = $(".ui.form").form("validate form");
-        if (isValidate){
+        if (isValidate) {
             load_comment();
-        }else {
+        } else {
         }
     })
 </script>
-<script>
+<script th:inline="javascript">
+
+    $(function () {
+        debugger
+        $("#comment-container").load(/*[[@{/comments/{id}(id=${blog.id})}]]*/"");
+    });
+
+    function load_comment() {
+        $("#comment-container").load(/*[[@{/comments}]]*/"", {
+            "parentComment.id": $("[name='parentComment.id']").val(),
+            "blog.id": $("[name='blog.id']").val(),
+            "nickname": $("[name='nickname']").val(),
+            "email": $("[name='email']").val(),
+            "content": $("[name='content']").val()
+        }, function (resTxt, statusTxt, xhr) {
+            $(window).scrollTo($('#comment-container'), 500);
+            clearContent();
+        })
+    }
+
+    function clearContent() {
+        $("[name='content']").val('');
+        $("[name='parentComment.id']").val(-1);
+        $("[name='content']").attr("placeholder", "please enter your comment!").focus();
+    }
+
+    function reply(obj) {
+        var commentId = $(obj).data('commentid');
+        var commentNickname = $(obj).data('commentnickname');
+        $("[name='content']").attr("placeholder", "@" + commentNickname).focus();
+        $("[name='parentComment.id']").val(commentId);
+        $(window).scrollTo($('#comment-form'), 500);
+    }
+
     $(".ui.form").form({
-            fields: {
-                content: {
-                    identifier: 'content',
-                    rules: [
-                        {
-                            type: 'empty',
-                            prompt: 'Please enter your content!'
-                        }
-                    ]
-                },
-                nickname: {
-                    identifier: 'nickname',
-                    rules: [
-                        {
-                            type: 'empty',
-                            prompt: 'Please enter your nickname!'
-                        }
-                    ]
-                },
-                email: {
-                    identifier: 'email',
-                    rules: [
-                        {
-                            type: 'email',
-                            prompt: 'Please enter your email!'
-                        }
-                    ]
-                }
+        fields: {
+            content: {
+                identifier: 'content',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter your content!'
+                    }
+                ]
+            },
+            nickname: {
+                identifier: 'nickname',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter your nickname!'
+                    }
+                ]
+            },
+            email: {
+                identifier: 'email',
+                rules: [
+                    {
+                        type: 'email',
+                        prompt: 'Please enter your email!'
+                    }
+                ]
             }
-        });
+        }
+    });
 </script>
 </html>

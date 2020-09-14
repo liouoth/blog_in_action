@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BlogController {
     @Autowired
     private BlogService blogService;
+
     @GetMapping("/{id}")
     public String blog(@PathVariable Long id, Model model){
         model.addAttribute("blog",blogService.getAndConvert(id));
         return "blog";
     }
+
+
 }

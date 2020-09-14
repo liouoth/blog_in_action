@@ -19,7 +19,7 @@ public class CommentServiceImpl implements CommentService {
     public Comment save(Comment comment) {
         Long parentId = comment.getParentComment().getId();
         Comment parentComment = null;
-        if (parentId != null || parentId != -1) {
+        if (parentId != null && parentId != -1) {
             parentComment = commentDao.getOne(parentId);
         }
         comment.setParentComment(parentComment);
