@@ -51,7 +51,7 @@
                                         </div>
 
                                         <div class="four wide column right aligned">
-                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin">详细内容</a>
+                                            <a class="ui teal basic label m-padded-tb-mini m-text-thin" th:text="${blog.sort.name}"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -85,13 +85,13 @@
                                     <i class="icon idea"></i>分类
                                 </div>
                                 <div class="column right aligned">
-                                    <a href="">more</a>
+                                    <a th:href="@{/sorts/-1}">more</a>
                                 </div>
                             </div>
                         </div>
                         <div class="ui teal segment">
                             <div class="ui fluid vertical menu">
-                                <a class="item" th:each="sort:${sorts}">
+                                <a th:href="@{/sorts/{id}(id=${sort.id})}"  class="item" th:each="sort:${sorts}">
                                     <span th:text="${sort.name}"></span>
                                     <div class="ui teal basic label" th:text="${#arrays.length(sort.blogList)}"></div>
                                 </a>
@@ -105,12 +105,12 @@
                                     <i class="icon tags"></i>标签
                                 </div>
                                 <div class="column right aligned">
-                                    <a href="">more</a>
+                                    <a th:href="@{/tags/-1}">more</a>
                                 </div>
                             </div>
                         </div>
                         <div class="ui teal segment">
-                            <a href="" class="ui teal basic label mini m-margin-tb-tiny" th:each="tag:${tags}">
+                            <a th:href="@{/tags/{id}(id=${tag.id})}" class="ui teal basic label mini m-margin-tb-tiny" th:each="tag:${tags}">
                                 <span th:text="${tag.name}"></span>
                                 <div class="detail" th:text="${#arrays.length(tag.blogList)}"></div>
                             </a>
@@ -121,7 +121,7 @@
                             <i class="icon bookmark"></i>最新推荐
                         </div>
                         <div class="ui segment" th:each="newBlog:${blogs}">
-                            <a href="" class="m-black m-text-thin" th:text="${newBlog.title}">
+                            <a th:href="@{/blog/{id}(id=${newBlog.id})}" class="m-black m-text-thin" th:text="${newBlog.title}">
                             </a>
                         </div>
                     </div>

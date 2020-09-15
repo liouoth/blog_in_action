@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
-@Controller
+@Controller("adminSortController")
 @RequestMapping("/admin")
 public class SortController {
     @Autowired

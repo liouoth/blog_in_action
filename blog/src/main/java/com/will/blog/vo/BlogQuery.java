@@ -2,7 +2,7 @@ package com.will.blog.vo;
 
 public class BlogQuery {
     private String title;
-    private Integer sortId;
+    private Long sortId;
     private Boolean recommend;
 
     public String getTitle() {
@@ -13,11 +13,11 @@ public class BlogQuery {
         this.title = title;
     }
 
-    public Integer getSortId() {
+    public Long getSortId() {
         return sortId;
     }
 
-    public void setSortId(Integer sortId) {
+    public void setSortId(Long sortId) {
         this.sortId = sortId;
     }
 

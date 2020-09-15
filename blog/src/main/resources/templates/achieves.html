@@ -9,7 +9,7 @@
 <!-- nav -->
 <nav th:insert="_fragments :: common_nav(4)"></nav>
 <!-- main -->
-<main class="m-padded-tb-big m-container-small">
+<main class="m-padded-tb-huge m-container-small">
     <div class="ui container">
         <div class="ui top attached padded segment">
             <div class="ui middle aligned two column grid">
@@ -17,53 +17,24 @@
                     <h3 class="ui header teal">归档</h3>
                 </div>
                 <div class="right aligned column">
-                    共 <h2 class="ui header orange m-inline-block m-text-thin"> 14 </h2> 篇博客
+                    共 <h2 class="ui header orange m-inline-block m-text-thin" th:text="${count}">  </h2> 篇博客
                 </div>
             </div>
         </div>
 
-        <h2 class="ui header center aligned">2020</h2>
-        <div class="ui fluid vertical menu">
-            <a class="item">
-                <div class="m-inline-block">
-                    <span class="ui label m-margin-r basic orange m-padded-tb-tiny">原创</span>
-                        关于阻塞队列的应用
-                </div>
-                <span class="ui label">2020-6-9 18:31:22</span>
-            </a>
-        </div>
+        <th:block th:each="item : ${map}">
+            <h2 class="ui header center aligned" th:text="${item.key}"></h2>
+            <div class="ui fluid vertical menu">
+                <a class="item" th:each="blog : ${item.value}" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                    <div class="m-inline-block">
+                        <span class="ui label m-margin-r basic orange m-padded-tb-tiny" th:text="${blog.flag}"></span>
+                        <span th:text="${blog.title}"></span>
+                    </div>
+                    <span class="ui label" th:text="${blog.updateTime}"></span>
+                </a>
+            </div>
+        </th:block>
 
-        <h2 class="ui header center aligned">2019</h2>
-        <div class="ui fluid vertical menu">
-            <a class="item">
-                <div class="m-inline-block">
-                    <span class="ui label m-margin-r basic orange m-padded-tb-tiny">原创</span>
-                    关于阻塞队列的应用
-                </div>
-                <span class="ui label">2020-6-9 18:31:22</span>
-            </a>
-            <a class="item">
-                <div class="m-inline-block">
-                    <span class="ui label m-margin-r basic orange m-padded-tb-tiny">原创</span>
-                    关于阻塞队列的应用
-                </div>
-                <span class="ui label">2020-6-9 18:31:22</span>
-            </a>
-            <a class="item">
-                <div class="m-inline-block">
-                    <span class="ui label m-margin-r basic orange m-padded-tb-tiny">原创</span>
-                    关于阻塞队列的应用
-                </div>
-                <span class="ui label">2020-6-9 18:31:22</span>
-            </a>
-            <a class="item">
-                <div class="m-inline-block">
-                    <span class="ui label m-margin-r basic orange m-padded-tb-tiny">原创</span>
-                    关于阻塞队列的应用
-                </div>
-                <span class="ui label">2020-6-9 18:31:22</span>
-            </a>
-        </div>
     </div>
 </main>
 <!--footer-->

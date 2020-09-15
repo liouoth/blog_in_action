@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
-@Controller
+@Controller("adminTagsController")
 @RequestMapping("/admin")
 public class TagsController {
     @Autowired

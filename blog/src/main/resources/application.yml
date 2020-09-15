@@ -6,6 +6,12 @@ spring:
   profiles:
     active: dev
 
+# 国际化
+#  messages:
+#    basename:
 system:
   anonymous:
     avatar: /img/anon-avatar.jpg
+
+
+

@@ -26,4 +26,12 @@ public interface BlogDao extends JpaRepository<Blog, Long>, JpaSpecificationExec
     int view(Long blogId);
 
     List<Blog> findBySortEquals(Sort sort, Pageable pageable);
+
+
+    @Query(value = "select date_format(b.update_time,'%Y') as year from blog b group by year Order by year desc"
+    ,nativeQuery = true)
+    List<String> selectYears();
+
+    @Query("select b from Blog b where function('date_format',b.updateTime,'%Y') = ?1")
+    List<Blog> findByYear(String year);
 }

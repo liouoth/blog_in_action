@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Map;
 
 
 public interface BlogService {
@@ -20,5 +21,9 @@ public interface BlogService {
 
     Page search(Pageable pageable, String query);
 
-    Page<Blog> listBySort(Sort sort, Pageable pageable);
+    Page<Blog> listBlog(Pageable pageable,Long tagId);
+
+    Map<String,List<Blog>> achieveBlog();
+
+    Long count();
 }
