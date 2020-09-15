@@ -1,6 +1,7 @@
 package com.will.blog.service;
 
 import com.will.blog.entity.Blog;
+import com.will.blog.entity.Sort;
 import com.will.blog.vo.BlogQuery;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,4 +19,6 @@ public interface BlogService {
     List<Blog> listTopBlog(int i);
 
     Page search(Pageable pageable, String query);
+
+    Page<Blog> listBySort(Sort sort, Pageable pageable);
 }

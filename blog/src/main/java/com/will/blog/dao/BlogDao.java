@@ -1,12 +1,15 @@
 package com.will.blog.dao;
 
 import com.will.blog.entity.Blog;
+import com.will.blog.entity.Sort;
 import com.will.blog.entity.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,4 +19,11 @@ public interface BlogDao extends JpaRepository<Blog, Long>, JpaSpecificationExec
 
     @Query("select t from Blog t where title like ?1 or content like ?1")
     Page search(String query,Pageable pageable);
+
+    @Transactional
+    @Modifying
+    @Query("update Blog set views = views+1 where blogId = ?1")
+    int view(Long blogId);
+
+    List<Blog> findBySortEquals(Sort sort, Pageable pageable);
 }

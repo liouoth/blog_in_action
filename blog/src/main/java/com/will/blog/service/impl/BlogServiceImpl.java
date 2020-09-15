@@ -45,6 +45,7 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.getOne(id);
     }
 
+    @Transactional
     @Override
     public Blog getAndConvert(Long id) {
         Blog blog = get(id);
@@ -58,6 +59,7 @@ public class BlogServiceImpl implements BlogService {
         return b;
     }
 
+    @Transactional
     @Override
     public void delete(Long id) {
         blogDao.deleteById(id);
@@ -107,5 +109,10 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Page search(Pageable pageable, String query) {
         return blogDao.search("%"+query+"%",pageable);
+    }
+
+    @Override
+    public List<Blog> listBySort(Sort sort, Pageable pageable) {
+        return blogDao.findBySortEquals(sort,pageable);
     }
 }

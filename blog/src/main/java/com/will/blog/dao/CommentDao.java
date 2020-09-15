@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface CommentDao extends JpaRepository<Comment,Long> {
     List<Comment> findByBlogId(Long blogId, Sort sort);
+    List<Comment> findByBlogIdAndParentCommentEquals(Long blogId,Comment parentComment,Sort sort);
 }

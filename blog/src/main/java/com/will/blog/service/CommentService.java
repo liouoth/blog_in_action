@@ -12,4 +12,5 @@ import java.util.List;
 public interface CommentService {
     Comment save(Comment comment);
     List<Comment> listByBlogId(Long blogId);
+    List<Comment> listRootByBlogId(Long blogId);
 }
