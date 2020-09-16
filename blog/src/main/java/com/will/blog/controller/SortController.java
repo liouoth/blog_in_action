@@ -36,7 +36,11 @@ public class SortController {
         List<com.will.blog.entity.Sort> sortList = sortService.listAll();
         model.addAttribute("sorts",sortList);
         if (id==null||id==-1){
-            id = sortList.get(0).getId();
+            if (sortList.size()>0){
+                id = sortList.get(0).getId();
+            }else {
+                id = -1L;
+            }
         }
         BlogQuery query = new BlogQuery();
         query.setSortId(id);

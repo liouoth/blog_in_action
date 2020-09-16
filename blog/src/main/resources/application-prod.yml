@@ -19,3 +19,8 @@ logging:
 
 server:
   port: 8080
+
+# global settings
+system:
+  anonymous:
+    avatar: /img/anon-avatar.jpg

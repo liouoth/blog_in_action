@@ -34,7 +34,11 @@ public class TagsController {
         List<Tag> tagList = tagService.listAll();
         model.addAttribute("tags",tagList);
         if (id==null||id==-1){
-            id = tagList.get(0).getId();
+            if (tagList.size()>0){
+                id=tagList.get(0).getId();
+            }else{
+                id = -1L;
+            }
         }
         Page<Blog> page = blogService.listBlog(pageable,id);
         model.addAttribute("page",page);
