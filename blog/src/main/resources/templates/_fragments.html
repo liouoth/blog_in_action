@@ -17,10 +17,14 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu" id="nav-menu">
             <a class="ui item" th:href="@{/}"><h2 class="ui teal header">Will Of Coding</h2></a>
-            <a th:href="@{/}" class="item m-mobile-hide" th:classappend="${n==1}?'active'"><i class="mini icon home"></i>Home</a>
-            <a th:href="@{/sorts/-1}" class="item m-mobile-hide" th:classappend="${n==2}?'active'"><i class="mini icon book"></i>Sorts</a>
-            <a th:href="@{/tags/-1}" class="item m-mobile-hide" th:classappend="${n==3}?'active'"><i class="mini icon tags"></i>Tags</a>
-            <a th:href="@{/achieves}" class="item m-mobile-hide" th:classappend="${n==4}?'active'"><i class="mini icon calendar"></i>Achieves</a>
+            <a th:href="@{/}" class="item m-mobile-hide" th:classappend="${n==1}?'active'"><i
+                    class="mini icon home"></i>Home</a>
+            <a th:href="@{/sorts/-1}" class="item m-mobile-hide" th:classappend="${n==2}?'active'"><i
+                    class="mini icon book"></i>Sorts</a>
+            <a th:href="@{/tags/-1}" class="item m-mobile-hide" th:classappend="${n==3}?'active'"><i
+                    class="mini icon tags"></i>Tags</a>
+            <a th:href="@{/achieves}" class="item m-mobile-hide" th:classappend="${n==4}?'active'"><i
+                    class="mini icon calendar"></i>Achieves</a>
             <a th:href="@{/me}" class="item m-mobile-hide" th:classappend="${n==5}?'active'">
                 <i class="mini icon user"></i>About Me</a>
             <div class="right item m-mobile-hide">
@@ -84,9 +88,11 @@
     <script th:src="@{/js/jquery.min.js}"></script>
     <script th:src="@{/js/semantic.min.js}"></script>
     <script>
-        $(function () {
-            $('.ui.dropdown')
-                .dropdown();
+        $('.ui.dropdown')
+            .dropdown();
+
+        $('#nav-btn').click(function () {
+            $('#nav-menu>.item:not(:first-child)').toggleClass("m-mobile-hide");
         });
     </script>
 </th:block>
