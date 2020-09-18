@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.will</groupId>
-    <artifactId>blog</artifactId>
+    <artifactId>blog_origin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>blog</name>
     <description>Will Of Coding</description>
