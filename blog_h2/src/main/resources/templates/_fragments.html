@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <th:block th:fragment="common_head(title)">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title th:replace="${title}">Will Of Coding</title>
+        <link rel="stylesheet" th:href="@{/css/common.css}">
+        <link rel="stylesheet"
+              href="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="icon" th:href="@{/img/favicon.ico}" type="image/x-icon"/>
+    </th:block>
+</head>
+<body>
+<!-- nav -->
+<nav th:fragment="common_nav(n)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu" id="nav-menu">
+            <a class="ui item" th:href="@{/}"><h2 class="ui teal header">Will Of Coding</h2></a>
+            <a th:href="@{/}" class="item m-mobile-hide" th:classappend="${n==1}?'active'"><i
+                    class="icon home"></i>Home</a>
+            <a th:href="@{/sorts/-1}" class="item m-mobile-hide" th:classappend="${n==2}?'active'"><i
+                    class="icon book"></i>Sorts</a>
+            <a th:href="@{/tags/-1}" class="item m-mobile-hide" th:classappend="${n==3}?'active'"><i
+                    class="icon tags"></i>Tags</a>
+            <a th:href="@{/achieves}" class="item m-mobile-hide" th:classappend="${n==4}?'active'"><i
+                    class="icon calendar"></i>Achieves</a>
+            <a th:href="@{/me}" class="item m-mobile-hide" th:classappend="${n==5}?'active'">
+                <i class="icon user"></i>About Me</a>
+            <div class="right item m-mobile-hide">
+                <form method="post" th:action="@{/search}" name="searchForm" target="_blank">
+                    <div class="ui icon transparent input inverted">
+                        <input type="text" placeholder="Search..." name="query" th:value="${query}">
+                        <i class="icon link search" onclick="document.searchForm.submit()"></i>
+                    </div>
+                </form>
+            </div>
+            <a class="ui icon button m-mobile-show middle aligned black" id="nav-btn">
+                <i class="icon sidebar inverted"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+<!--footer-->
+<footer class="ui inverted vertical segment m-padded-tb-massive" th:fragment="common_footer">
+    <div class="ui container attached center aligned m-text-spaced m-text-lined m-text-thin m-opacity-mini">
+        <p>
+            <a href="https://github.com/liouoth" target="_blank">
+                <i class="icon github inverted large" ></i>
+            </a>
+            <a href="" target="_blank">
+                <i class="icon weibo inverted large" ></i>
+            </a>
+            <a href="" target="_blank">
+                <i class="icon mail inverted large" ></i>
+            </a>
+            <a href="" target="_blank">
+                <i class="icon twitter inverted large" ></i>
+            </a>
+        </p>
+        <p>Stay hungry,Stay foolish</p>
+        <p>Powered by Springboot & Thymeleaf</p>
+        <p>Will Of Coding·Copyright@2020-2023</p>
+    </div>
+</footer>
+</body>
+
+<!--common script-->
+<th:block th:fragment="common_script">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script>
+        $('.ui.dropdown')
+            .dropdown();
+
+        $('#nav-btn').click(function () {
+            $('#nav-menu>.item:not(:first-child)').toggleClass("m-mobile-hide");
+        });
+    </script>
+</th:block>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <th:block th:replace="_fragments :: common_head(~{::title})">
+        <title>Sort | Will Of Coding</title>
+    </th:block >
+</head>
+<body class="m-bg">
+<nav th:replace="admin/_fragments :: common_nav(2)"></nav>
+<div class="ui attached pointing menu">
+    <div class="container ui">
+        <div class="right menu">
+            <a th:href="@{/admin/sorts_m}" class="item">发布</a>
+            <a th:href="@{/admin/sorts}" class="active teal item">列表</a>
+        </div>
+    </div>
+</div>
+<!-- main -->
+<main class="m-padded-tb-big m-container-small m-min-h-big">
+    <div class="ui container">
+        <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+            <i class="close icon"></i>
+            <div class="header">
+                Tips:
+            </div>
+            <p th:text="${message}"></p>
+        </div>
+        <table class="ui celled striped table">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>名称</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sort,iterStat:${page.content}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${sort.name}"></td>
+                <td>
+                    <a href="" th:href="@{/admin/sorts/{id}/input(id=${sort.id})}" class="ui mini teal button">编辑</a>
+                    <a href="" th:href="@{/admin/sorts/delete/{id}/input(id=${sort.id})}" class="ui mini orange button">删除</a>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="6">
+                        <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
+                            <a href="" th:href="@{/admin/sorts(page=${page.number-1})}" class="item"
+                               th:unless="${page.first}">上一页</a>
+                            <a href="" th:href="@{/admin/sorts(page=${page.number+1})}" class="item"
+                               th:unless="${page.last}">下一页</a>
+                        </div>
+                        <a th:href="@{/admin/sorts_m}" class="ui mini right floated basic teal button">新增</a>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</main>
+<!--footer-->
+<footer th:replace="_fragments :: common_footer"></footer>
+</body>
+<!--/*/<th:block th:replace="admin/_fragments  :: common_script">/*/-->
+<!--/*/</th:block >/*/-->
+<script>
+    $('.message .close')
+        .on('click', function() {
+            $(this)
+                .closest('.message')
+                .transition('fade')
+            ;
+        });
+</script>
+</html>

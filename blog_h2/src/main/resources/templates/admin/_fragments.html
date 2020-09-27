@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <th:block th:fragment="common_head(title)">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title th:replace="${title}">Will Of Coding</title>
+        <link rel="stylesheet" th:href="@{/css/common.css}">
+        <link rel="stylesheet"
+              href="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="icon" th:href="@{/img/favicon.ico}" type="image/x-icon"/>
+    </th:block>
+</head>
+<body>
+    <nav th:fragment="common_nav(n)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu" id="nav-menu">
+            <h2 class="ui item teal header">Will Admin</h2>
+            <a th:href="@{/admin/blogs_m}" class="item m-mobile-hide" th:classappend="${n==1}?'active'"><i class="icon home"></i>Blog</a>
+            <a th:href="@{/admin/sorts}" class="item m-mobile-hide" th:classappend="${n==2}?'active'"><i class="icon book"></i>Sorts</a>
+            <a th:href="@{/admin/tags}" class="item m-mobile-hide" th:classappend="${n==3}?'active'"><i class="icon tags"></i>Tags</a>
+            <div class="right item ui dropdown m-mobile-hide">
+                <div class="ui icon transparent input inverted">
+                    <div class="text">
+                        <img th:src="@{/img/avatar.jpg}" alt="" class="ui avatar image">
+                        <span th:text="${session?.user?.nickname}"></span>
+                    </div>
+                </div>
+                <i class="icon dropdown"></i>
+                <div class="menu">
+                    <a th:href="@{/admin/logout}" class="item">注销</a>
+                </div>
+            </div>
+            <a class="ui icon button m-mobile-show middle aligned black" id="nav-btn">
+                <i class="icon sidebar inverted"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+</body>
+<th:block th:fragment="common_script">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script>
+        $(function () {
+            $("#nav-btn").click(function () {
+                $("#nav-menu").children("a,div").toggleClass("m-mobile-hide");
+            });
+        })
+    </script>
+</th:block>
+</html>

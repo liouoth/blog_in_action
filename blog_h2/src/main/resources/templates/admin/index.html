@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <th:block th:replace="admin/_fragments :: common_head(~{::title})">
+        <title>Admin Index | Will Of Coding</title>
+    </th:block>
+</head>
+<body class="m-bg">
+<nav th:replace="admin/_fragments :: common_nav(0)"></nav>
+<br>
+<br>
+<br>
+<main class="m-padded-tb-massive m-container-small m-min-h-big">
+    <div class="ui container">
+        <div class="ui success big message">
+            <h2>Hi</h2><p>欢迎登陆，liouo!</p>
+        </div>
+    </div>
+</main>
+<footer th:insert="_fragments :: common_footer"></footer>
+</body>
+<!--/*/<th:block th:insert="admin/_fragments :: common_script">/*/-->
+<!--/*/</th:block >/*/-->
+<script>
+    $(function () {
+        $('.ui.dropdown').dropdown();
+    });
+</script>
+</html>

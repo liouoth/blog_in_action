@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <th:block th:replace="_fragments :: common_head(~{::title})">
+        <title>AboutMe | Will Of Coding</title>
+    </th:block>
+</head>
+<body class="m-bg">
+<!-- nav -->
+<nav th:insert="_fragments :: common_nav(5)"></nav>
+<!-- main -->
+<main class="m-padded-tb-big m-container">
+    <div class="ui container">
+        <div class="ui grid stackable">
+            <div class="ui eleven wide column">
+                <div class="ui segment">
+                    <img th:src="@{/img/aboutme.jpg}" class="ui image rounded">
+                </div>
+            </div>
+            <div class="ui five wide column">
+                <div class="ui top attached segment">
+                    <div class="ui header">关于我</div>
+                </div>
+                <div class="ui attached segment">
+                    <p class="m-text">在上海务工的不知名码农。</p>
+                    <p class="m-text">目前还很菜，没有什么方向</p>
+                    <p class="m-text">正在学习springboot、微服务</p>
+                </div>
+                <div class="ui attached segment">
+                    <div class="ui label basic orange">INTJ</div>
+                    <div class="ui label basic orange">宅男</div>
+                    <div class="ui label basic orange">爱BB</div>
+                </div>
+                <div class="ui attached segment">
+                    <div class="ui label basic teal">Java</div>
+                    <div class="ui label basic teal">Python</div>
+                    <div class="ui label basic teal">JavaScript</div>
+                </div>
+                <div class="ui bottom attached segment">
+                    <a href="" class="ui circular icon button"><i class="github icon"></i></a>
+                    <a href="" class="ui circular icon button"><i class="weibo icon"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--footer-->
+<footer th:insert="_fragments :: common_footer"></footer>
+</body>
+<!--/*/<th:block th:insert="_fragments :: common_script">/*/-->
+<!--/*/</th:block >/*/-->
+</html>
